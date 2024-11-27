@@ -1,0 +1,32 @@
+{
+  "Zone1": [
+    {
+      "src": "MNSLHD-Cosia-Bati-Route.png",
+      "description": "MNSLHD-Cosia-Bati-Route"
+    },
+    {
+      "src": "MNTLHD-Cosia-Bati-Route.png",
+      "description": "MNTLHD-Cosia-Bati-Route"
+    }
+  ],
+  "Zone2": [
+    {
+      "src": "MNS-Cosia_3.png",
+      "description": "MNS- Cosia_3."
+    },
+    {
+      "src": "MNS-OCSGE.png",
+      "description": "MNS-OCSGE"
+    }
+  ],
+  "Zone3": [
+    {
+      "src": "MNS-Cosia_2.png",
+      "description": "MNS-Cosia_2"
+    },
+    {
+      "src": "MNS-Cosia.png",
+      "description": "MNS-Cosia"
+    }
+  ]
+}
