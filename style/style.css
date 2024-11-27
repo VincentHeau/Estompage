@@ -1,11 +1,4 @@
-/* style.css */
-/* .image-comparison {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    overflow: hidden;
-  }
-   */
+
   .image {
     position: absolute;
     top: 0;
@@ -14,7 +7,7 @@
     height: auto;
     object-fit: cover;
   }
-  
+
 
   .juxtapose img {
     height: 100%;

@@ -11,29 +11,31 @@
   <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-  <div class="container mt-5">
-    <!-- Titre -->
-    <nav class="navbar navbar-expand-lg  navbar-light bg-light mb-4">
-        <a class="navbar-brand" href="#">Prototype d'Estompage pour Plan IGN</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#"><span class="sr-only">Petite Echelle</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/echantillon_multidirectionnel/index.html">Moyenne échelle</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/echantillon_multidirectionnel/index.html">Grande échelle</a>
-              </li>
-            
-          </ul>
-        </div>
-      </nav>
+   <!-- Titre -->
+   <nav class="navbar navbar-expand-lg navbar-light bg-light mb-1 p-2">
+    <a class="navbar-brand" href="#">Prototype d'estompage pour Plan IGN</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Petite échelle</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/echantillon_multidirectionnel/index.html">Moyenne échelle</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/echantillon_multidirectionnel/index.html">Grande échelle</a>
+        </li>
+      </ul>
+    </div>
+    <a class="navbar-brand" href="#">
+      <img src="/ressources/git.svg" width="30" height="30" alt="">
+    </a>
+  </nav>
 
+  <div class="container mt-1">
     <!-- Menu des zones avec des boutons radio -->
     <div class="d-flex justify-content-center mb-4">
         <div class="btn-group" role="group" aria-label="Zones Test">
@@ -60,25 +62,37 @@
     <!-- Choix des images -->
     <div class="row mb-4">
         <div class="col-md-6">
-        <label for="left-image-select" class="form-label">Choisissez l'image de gauche :</label>
-        <select id="left-image-select" class="form-select">
-            <!-- Options générées dynamiquement -->
-        </select>
+          <div class="d-flex align-items-center">
+            <select id="left-image-select" class="form-select me-2">
+              <!-- Options générées dynamiquement -->
+            </select>
+            <button type="button" class="btn btn-info">🛈</button>
+          </div>
         </div>
         <div class="col-md-6">
-        <label for="right-image-select" class="form-label">Choisissez l'image de droite :</label>
-        <select id="right-image-select" class="form-select">
-            <!-- Options générées dynamiquement -->
-        </select>
+          <div class="d-flex align-items-center">
+            <select id="right-image-select" class="form-select me-2">
+              <!-- Options générées dynamiquement -->
+            </select>
+            <button type="button" class="btn btn-info">🛈</button>
+          </div>
         </div>
     </div>
 
-    <!-- Conteneur pour Juxtapose -->
-    <div class="juxtapose" style="width: 100%; max-width: 800px; margin: auto;">
-        <img id="image1" src="ressources/Zone1/MNSLHD-Cosia-Bati-Route.png" alt="Image Avant" />
-        <img id="image2" src="ressources/Zone1/MNTLHD-Cosia-Bati-Route.png" alt="Image Après" />
+
+  <div id="container"  style="width: 100%; width: 100vh; margin: auto;">
+    <div id="juxtapose-embed"></div>
+    <div id="controls">
+      <a href="" id="left-button"/>Left</a> |
+      <a href="" id="right-button"/>Right</a>
     </div>
-   </div>
+  </div>
+
+  <div>
+    <div id="juxtapose-hidden"></div>
+  </div>
+  <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
