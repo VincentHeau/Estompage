@@ -1,11 +1,11 @@
 /* style.css */
-.image-comparison {
+/* .image-comparison {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
     overflow: hidden;
   }
-  
+   */
   .image {
     position: absolute;
     top: 0;
@@ -15,7 +15,12 @@
     object-fit: cover;
   }
   
-  .image-before {
+
+  .juxtapose img {
+    height: 100%;
+    object-fit: cover;
+  }
+  /* .image-before {
     z-index: 1;
   }
   
@@ -32,3 +37,6 @@
     z-index: 3;
   }
   
+  .image {
+    border: 2px solid red;
+  } */
