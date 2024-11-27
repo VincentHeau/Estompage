@@ -1,0 +1,34 @@
+/* style.css */
+.image-comparison {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  
+  .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .image-before {
+    z-index: 1;
+  }
+  
+  .image-after {
+    clip-path: inset(0 50% 0 0);
+  }
+  
+  .slider {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    z-index: 3;
+  }
+  
