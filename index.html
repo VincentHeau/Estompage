@@ -7,7 +7,7 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
-
+  <link rel="icon" href="ressources/favicon.png" type="image/png">
   <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
@@ -30,7 +30,7 @@
         </li>
       </ul>
     </div>
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="https://github.com/VincentHeau/Estompage">
       <img src="/ressources/git.svg" width="30" height="30" alt="">
     </a>
   </nav>
@@ -66,7 +66,12 @@
             <select id="left-image-select" class="form-select me-2">
               <!-- Options générées dynamiquement -->
             </select>
-            <button type="button" class="btn btn-info">🛈</button>
+            <button type="button"
+                    id="left-info-btn" 
+                    class="btn btn-info left-info-btn" 
+                    data-bs-toggle="tooltip" 
+                    data-bs-placement="top" 
+                    title="Description indisponible">🛈</button>
           </div>
         </div>
         <div class="col-md-6">
@@ -74,7 +79,12 @@
             <select id="right-image-select" class="form-select me-2">
               <!-- Options générées dynamiquement -->
             </select>
-            <button type="button" class="btn btn-info">🛈</button>
+            <button type="button"
+                    id="right-info-btn" 
+                    class="btn btn-info right-info-btn" 
+                    data-bs-toggle="tooltip" 
+                    data-bs-placement="top" 
+                    title="Description indisponible">🛈</button>
           </div>
         </div>
     </div>
@@ -82,10 +92,6 @@
 
   <div id="container"  style="width: 100%; width: 100vh; margin: auto;">
     <div id="juxtapose-embed"></div>
-    <div id="controls">
-      <a href="" id="left-button"/>Left</a> |
-      <a href="" id="right-button"/>Right</a>
-    </div>
   </div>
 
   <div>
