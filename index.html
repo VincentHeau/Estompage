@@ -13,15 +13,48 @@
 <body>
   <div class="container mt-5">
     <!-- Titre -->
-    <h1 class="text-center mb-4">Prototype d'Estompage pour Plan IGN (Petite Échelle)</h1>
+    <nav class="navbar navbar-expand-lg  navbar-light bg-light mb-4">
+        <a class="navbar-brand" href="#">Prototype d'Estompage pour Plan IGN</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="#"><span class="sr-only">Petite Echelle</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/echantillon_multidirectionnel/index.html">Moyenne échelle</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/echantillon_multidirectionnel/index.html">Grande échelle</a>
+              </li>
+            
+          </ul>
+        </div>
+      </nav>
 
-    <!-- Menu des zones -->
+    <!-- Menu des zones avec des boutons radio -->
     <div class="d-flex justify-content-center mb-4">
-      <div class="btn-group" role="group" aria-label="Zones Test">
-        <button type="button" class="btn btn-primary zone-btn" data-zone="1">ZONE 1</button>
-        <button type="button" class="btn btn-primary zone-btn" data-zone="2">ZONE 2</button>
-        <button type="button" class="btn btn-primary zone-btn" data-zone="3">ZONE 3</button>
-      </div>
+        <div class="btn-group" role="group" aria-label="Zones Test">
+        <input type="radio" class="btn-check" name="zone" id="zone1" autocomplete="off" checked>
+        <label class="btn btn-light" for="zone1" id="zone1-label">
+            ZONE 1: Col du Frêne
+            <span class="tooltip-text">(45.580527 , 6.151173)</span>
+          </label>
+
+        <input type="radio" class="btn-check" name="zone" id="zone2" autocomplete="off">
+        <label class="btn btn-light" for="zone2" id="zone2-label">
+            ZONE 2: travaux
+            <span class="tooltip-text">(45.580527 , 6.151173)</span>
+        </label>
+
+        <input type="radio" class="btn-check" name="zone" id="zone3" autocomplete="off">
+        <label class="btn btn-light" for="zone3" id="zone3-label">
+            ZONE 3: travaux
+            <span class="tooltip-text">(45.580527 , 6.151173)</span>
+        </label>
+        </div>
     </div>
 
     <!-- Choix des images -->
