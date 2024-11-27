@@ -1,32 +1,32 @@
 {
-  "Zone 1": [
+  "Zone1": [
     {
-      "image": "MNSLHD-Cosia-Bati-Route.png",
-      "description": "Description de l'image 1 pour la Zone 1."
+      "src": "MNSLHD-Cosia-Bati-Route.png",
+      "description": "MNSLHD-Cosia-Bati-Route"
     },
     {
-      "image": "MNTLHD-Cosia-Bati-Route.png",
-      "description": "Description de l'image 2 pour la Zone 1."
+      "src": "MNTLHD-Cosia-Bati-Route.png",
+      "description": "MNTLHD-Cosia-Bati-Route"
     }
   ],
-  "Zone 2": [
+  "Zone2": [
     {
-      "image": "Image1.png",
-      "description": "Description de l'image 1 pour la Zone 2."
+      "src": "MNS-Cosia_3.png",
+      "description": "MNS- Cosia_3."
     },
     {
-      "image": "Image2.png",
-      "description": "Description de l'image 2 pour la Zone 2."
+      "src": "MNS-OCSGE.png",
+      "description": "MNS-OCSGE"
     }
   ],
-  "Zone 3": [
+  "Zone3": [
     {
-      "image": "Image1.png",
-      "description": "Description de l'image 1 pour la Zone 3."
+      "src": "MNS-Cosia_2.png",
+      "description": "MNS-Cosia_2"
     },
     {
-      "image": "Image2.png",
-      "description": "Description de l'image 2 pour la Zone 3."
+      "src": "MNS-Cosia.png",
+      "description": "MNS-Cosia"
     }
   ]
 }
