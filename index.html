@@ -6,6 +6,8 @@
   <title>Prototype d'Estompage pour Plan IGN (Petite Échelle)</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
   <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
@@ -22,16 +24,32 @@
       </div>
     </div>
 
-    <!-- Images avec effet slider -->
-    <div class="image-comparison position-relative">
-      <img src="ressources/MNSLHD-Cosia-Bati-Route.png" alt="Image Avant" class="img-fluid image image-before">
-      <img src="ressources/MNTLHD-Cosia-Bati-Route.png" alt="Image Après" class="img-fluid image image-after">
-      <input type="range" class="form-range slider" min="0" max="100" value="50">
+    <!-- Choix des images -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+        <label for="left-image-select" class="form-label">Choisissez l'image de gauche :</label>
+        <select id="left-image-select" class="form-select">
+            <!-- Options générées dynamiquement -->
+        </select>
+        </div>
+        <div class="col-md-6">
+        <label for="right-image-select" class="form-label">Choisissez l'image de droite :</label>
+        <select id="right-image-select" class="form-select">
+            <!-- Options générées dynamiquement -->
+        </select>
+        </div>
     </div>
-  </div>
+
+    <!-- Conteneur pour Juxtapose -->
+    <div class="juxtapose" style="width: 100%; max-width: 800px; margin: auto;">
+        <img id="image1" src="ressources/Zone1/MNSLHD-Cosia-Bati-Route.png" alt="Image Avant" />
+        <img id="image2" src="ressources/Zone1/MNTLHD-Cosia-Bati-Route.png" alt="Image Après" />
+    </div>
+   </div>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>
