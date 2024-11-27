@@ -28,6 +28,9 @@
         <li class="nav-item">
           <a class="nav-link" href="/echantillon_multidirectionnel/index.html">Grande échelle</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/README.md">Documentation</a>
+        </li>
       </ul>
     </div>
     <a class="navbar-brand" href="https://github.com/VincentHeau/Estompage">
@@ -56,6 +59,12 @@
             ZONE 3: travaux
             <span class="tooltip-text">(45.580527 , 6.151173)</span>
         </label>
+
+        <input type="radio" class="btn-check" name="zone" id="zone4" autocomplete="off">
+        <label class="btn btn-light" for="zone4" id="zone4-label">
+            ZONE 4: travaux
+            <span class="tooltip-text">(45.580527 , 6.151173)</span>
+        </label>
         </div>
     </div>
 
@@ -66,12 +75,13 @@
             <select id="left-image-select" class="form-select me-2">
               <!-- Options générées dynamiquement -->
             </select>
-            <button type="button"
+            <a type="button"
                     id="left-info-btn" 
-                    class="btn btn-info left-info-btn" 
+                    href="/ressources/description.json"
+                    class="btn btn-outline-info left-info-btn" 
                     data-bs-toggle="tooltip" 
                     data-bs-placement="top" 
-                    title="Description indisponible">🛈</button>
+                    title="Description indisponible">🛈</a>
           </div>
         </div>
         <div class="col-md-6">
@@ -79,12 +89,13 @@
             <select id="right-image-select" class="form-select me-2">
               <!-- Options générées dynamiquement -->
             </select>
-            <button type="button"
+            <a type="button"
                     id="right-info-btn" 
-                    class="btn btn-info right-info-btn" 
+                    href="/ressources/description.json"
+                    class="btn btn-outline-info right-info-btn" 
                     data-bs-toggle="tooltip" 
                     data-bs-placement="top" 
-                    title="Description indisponible">🛈</button>
+                    title="Description indisponible">🛈</a>
           </div>
         </div>
     </div>
