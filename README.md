@@ -11,39 +11,70 @@
 # Documentation des Zones et Images
 
 Voici les descriptions des images pour chaque zone.
-
-## Zone 1
-
-![ressources/MNSLHD-Cosia-Bati-Route.png](ressources/Zone 1/MNSLHD-Cosia-Bati-Route.png)
-
-### Description :
-Description de l'image 1 pour Zone 1
-
-![ressources/MNTLHD-Cosia-Bati-Route.png](ressources/Zone 1/MNTLHD-Cosia-Bati-Route.png)
-
-### Description :
-Description de l'image 2 pour Zone 1
-
-## Zone 2
-
-![ressources/MNS-Cosia_3.png](ressources/Zone 2/MNS-Cosia_3.png)
-
-### Description :
-Description de l'image 1 pour Zone 2
-
-![ressources/MNS-OCSGE.png](ressources/Zone 2/MNS-OCSGE.png)
-
-### Description :
-Description de l'image 2 pour Zone 2
-
-## Zone 3
-
-![ressources/MNS-Cosia_2.png](ressources/Zone 3/MNS-Cosia_2.png)
-
-### Description :
-Description de l'image 1 pour Zone 3
-
-![ressources/MNS-Cosia.png](ressources/Zone 3/MNS-Cosia.png)
-
-### Description :
-Description de l'image 2 pour Zone 3
+|                                  |         | Fonds de plans | Terrain        | Occupation du sol | Habillage<br> supplémentaire |
+| -------------------------------- | ------- | -------------- | -------------- | ----------------- | ---------------------------- |
+|                                  |         | Plan IGN V2    | Orthophoto IGN | OpenStreetMap     | MNT RGE ALTI 5               | MNT LidarHD brut (~50cm) | MNT Lidar dégradé à 1m | MNS LidarHD | MNS Corrélation | MNT Grande Echelle (Equipe Archivage et diffusion) | MNT Grande Echelle traité sous Arcgis | Registre parcellaire cadastral | OCSGE | Cosia | Nuage de points classé | Courbes de niveau | Bati BD Uni | Routes BD UNI | Lieu BD UNI |
+| Zone 1                           | PlanIGN | X              |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| OrthoIGN                         |         | X              |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| OSM                              |         |                | X              |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| MNTLHD_OCSGE_Courbes_Routes_Lieu |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| MNSLHD_                          |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Zone 2                           | PlanIGN | X              |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| OrthoIGN                         |         | X              |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| OSM                              |         |                | X              |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Zone 3                           | PlanIGN | X              |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| OrthoIGN                         |         | X              |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| OSM                              |         |                | X              |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Zone 4                           | PlanIGN | X              |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| OrthoIGN                         |         | X              |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| OSM                              |         |                | X              |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Zone 5                           | PlanIGN | X              |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| OrthoIGN                         |         | X              |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| OSM                              |         |                | X              |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Zone 6                           | PlanIGN | X              |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| OrthoIGN                         |         | X              |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| OSM                              |         |                | X              |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|                                  |         |                |                |                   |                              |  |  |  |  |  |  |  |  |  |  |  |  |  |
