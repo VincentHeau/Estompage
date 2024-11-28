@@ -99,6 +99,9 @@ leftImageSelect.addEventListener("change", () => {
 });
 
 rightImageSelect.addEventListener("change", () => {
+    const selectedImage = imageData[currentZone].find(
+        image => image.src === rightImageSelect.value
+    );
     const rightSrc = `ressources/${currentZone}/${rightImageSelect.value}`;
     const leftSrc = slider.imgBefore.image.src; // Garder l'image de gauche actuelle
     initializeJuxtapose(leftSrc, rightSrc);
