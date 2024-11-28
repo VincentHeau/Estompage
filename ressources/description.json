@@ -9,7 +9,7 @@
       "description": "Fond de Plan IGN"
     },
     {
-      "src": "OrthoIGN",
+      "src": "OrthoIGN.png",
       "description": "Photographies aériennes IGN"
     },
     {
@@ -41,15 +41,15 @@
       "description": "Estompage haute résolution issu des données MNT IGN de l'équipe Archivage avec une OCS Cosia et un habillage incomplet constitué des courbes IGN"
     },
     {
-      "src": "MNSLHD_Cosia_Habillage_Toponyme",
+      "src": "MNSLHD_Cosia_Habillage_Toponyme.png",
       "description": "Modèle numérique de surface LidarHD avec données d'occupation du sol Cosia. Habillage BD UNI et Toponymes"
     },
     {
-      "src": "MNSLHD_Cosia_Habillage",
+      "src": "MNSLHD_Cosia_Habillage.png",
       "description": "Modèle numérique de surface LidarHD avec données d'occupation du sol Cosia"
     },
     {
-      "src": "MNSLHD_OCSGE_Habillage_Toponyme",
+      "src": "MNSLHD_OCSGE_Habillage_Toponyme.png",
       "description": "Modèle numérique de surface LidarHD avec données d'occupation du sol OCSGE. Habillage BD UNI et Toponymes"
     }
   ],
@@ -61,6 +61,10 @@
     {
       "src": "PlanIGN.png",
       "description": "Fond de Plan IGN"
+    },
+    {
+      "src": "OrthoIGN.png",
+      "description": "Photographies aériennes IGN"
     },
     {
       "src": "MNTLHD_Cosia.png",
@@ -102,7 +106,7 @@
       "description": "Fond de Plan IGN"
     },
     {
-      "src": "OrthoIGN",
+      "src": "OrthoIGN.png",
       "description": "Photographies aériennes IGN"
     },
     {
@@ -136,7 +140,7 @@
       "description": "Fond de Plan IGN"
     },
     {
-      "src": "OrthoIGN",
+      "src": "OrthoIGN.png",
       "description": "Photographies aériennes IGN"
     },
     {
@@ -174,7 +178,7 @@
       "description": "Fond de Plan IGN"
     },
     {
-      "src": "OrthoIGN",
+      "src": "OrthoIGN.png",
       "description": "Photographies aériennes IGN"
     },
     {
@@ -200,7 +204,7 @@
       "description": "Fond de Plan IGN"
     },
     {
-      "src": "OrthoIGN",
+      "src": "OrthoIGN.png",
       "description": "Photographies aériennes IGN"
     },
     {
