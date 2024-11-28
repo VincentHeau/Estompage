@@ -1,32 +1,219 @@
 {
   "Zone1": [
     {
-      "src": "MNSLHD-Cosia-Bati-Route.png",
-      "description": "MNSLHD-Cosia-Bati-Route"
+      "src": "OSM.png",
+      "description": "Fond OSM"
     },
     {
-      "src": "MNTLHD-Cosia-Bati-Route.png",
-      "description": "MNTLHD-Cosia-Bati-Route"
+      "src": "PlanIGN.png",
+      "description": "Fond de Plan IGN"
+    },
+    {
+      "src": "OrthoIGN",
+      "description": "Photographies aériennes IGN"
+    },
+    {
+      "src": "PlanIGN_transparence15.png",
+      "description": "MNT Lidar HD avec une couverture Plan IGN de transparence 15%"
+    },
+    {
+      "src": "MNTLHD_OCSGE_Habillage_Toponyme.png",
+      "description": "Modèle numérique de terrain LidarHD avec OCSGE et Habillage et toponyme complet"
+    },
+    {
+      "src": "MNTLHD_OCSGE_Habillage.png",
+      "description": "Modèle numérique de terrain LidarHD avec OCSGE et Habillage complet sans toponyme"
+    },
+    {
+      "src": "MNTLHD_Cosia_Habillage.png",
+      "description": "Modèle numérique de terrain LidarHD avec Cosia et Habillage complet"
+    },
+    {
+      "src": "MNTLHD_Cosia_Habillage_Toponyme.png",
+      "description": "Modèle numérique de terrain LidarHD avec Cosia et Habillage et toponyme complet"
+    },
+    {
+      "src": "MNTGE_OCSGE_Habillage_Toponyme.png",
+      "description": "Estompage haute résolution issu des données MNT IGN de l'équipe Archivage avec OCSGE et un habillage incomplet constitué des courbes IGN"
+    },
+    {
+      "src": "MNTGE_Cosia_Habillage_Toponyme.png",
+      "description": "Estompage haute résolution issu des données MNT IGN de l'équipe Archivage avec une OCS Cosia et un habillage incomplet constitué des courbes IGN"
+    },
+    {
+      "src": "MNSLHD_Cosia_Habillage_Toponyme",
+      "description": "Modèle numérique de surface LidarHD avec données d'occupation du sol Cosia. Habillage BD UNI et Toponymes"
+    },
+    {
+      "src": "MNSLHD_Cosia_Habillage",
+      "description": "Modèle numérique de surface LidarHD avec données d'occupation du sol Cosia"
+    },
+    {
+      "src": "MNSLHD_OCSGE_Habillage_Toponyme",
+      "description": "Modèle numérique de surface LidarHD avec données d'occupation du sol OCSGE. Habillage BD UNI et Toponymes"
     }
   ],
   "Zone2": [
     {
-      "src": "MNS-Cosia_3.png",
-      "description": "MNS- Cosia_3."
+      "src": "OSM.png",
+      "description": "Fond OSM"
     },
     {
-      "src": "MNS-OCSGE.png",
-      "description": "MNS-OCSGE"
+      "src": "PlanIGN.png",
+      "description": "Fond de Plan IGN"
+    },
+    {
+      "src": "MNTLHD_Cosia.png",
+      "description": ""
+    },
+    {
+      "src": "MNTLHD_Cosia_Habillage-CourbesIGN.png",
+      "description": ""
+    },
+    {
+      "src": "MNTLHD_Cosia_0Habillage0.png",
+      "description": ""
+    },
+    {
+      "src": "MNTGE_Cosia_Habillage_Toponyme.png",
+      "description": ""
+    },
+    {
+      "src": "MNSLHD_OCSGE.png",
+      "description": ""
+    },
+    {
+      "src": "MNSLHD_Cosia_0Habillage0.png",
+      "description": ""
+    },
+    {
+      "src": "MNSLHD_Cosia_Habillage_Toponyme.png",
+      "description": ""
     }
+    
   ],
   "Zone3": [
     {
-      "src": "MNS-Cosia_2.png",
-      "description": "MNS-Cosia_2"
+      "src": "OSM.png",
+      "description": "Fond OSM"
     },
     {
-      "src": "MNS-Cosia.png",
-      "description": "MNS-Cosia"
+      "src": "PlanIGN.png",
+      "description": "Fond de Plan IGN"
+    },
+    {
+      "src": "OrthoIGN",
+      "description": "Photographies aériennes IGN"
+    },
+    {
+      "src": "MNTGE_Cosia.png",
+      "description": ""
+    },
+    {
+      "src": "MNTLHD_Cosia_0Habillage0.png",
+      "description": ""
+    },
+    {
+      "src": "MNTLHD_OCSGE_0Habillage0.png",
+      "description": ""
+    },
+    {
+      "src": "MNTLHD_OCSGE_Habillage_Toponyme.png",
+      "description": ""
+    },
+    {
+      "src": "MNTLHD_Cosia_Habillage-hydro_Toponyme.png",
+      "description": ""
+    }
+  ],
+  "Zone4": [
+    {
+      "src": "OSM.png",
+      "description": "Fond OSM"
+    },
+    {
+      "src": "PlanIGN.png",
+      "description": "Fond de Plan IGN"
+    },
+    {
+      "src": "OrthoIGN",
+      "description": "Photographies aériennes IGN"
+    },
+    {
+      "src": "MNTLHD_OCSGE_Habillage_Toponyme.png",
+      "description": ""
+    },
+    {
+      "src": "MNTGE_Cosia_0Habillage-CourbeIGN0.png",
+      "description": ""
+    },
+    {
+      "src": "MNSLHD_OCSGE_Habillage_Toponyme.png",
+      "description": ""
+    },
+    {
+      "src": "MNSLHD_NuageLHD.png",
+      "description": ""
+    },
+    {
+      "src": "MNSLHD_Cosia-BatiBDUNI_Habillage_Toponyme.png",
+      "description": ""
+    },
+    {
+      "src": "MNSLHD_Cosia_Habillage_Toponyme.png",
+      "description": ""
+    }
+  ],
+  "Zone5": [
+    {
+      "src": "OSM.png",
+      "description": "Fond OSM"
+    },
+    {
+      "src": "PlanIGN.png",
+      "description": "Fond de Plan IGN"
+    },
+    {
+      "src": "OrthoIGN",
+      "description": "Photographies aériennes IGN"
+    },
+    {
+      "src": "MNTLHD_Cosia_Habillage-courbeIGN_Toponyme.png",
+      "description": ""
+    },
+    {
+      "src": "MNTLHD_Cosia_Habillage_Toponyme.png",
+      "description": ""
+    },
+    {
+      "src": "MNSLHD_Cosia_Habillage_Toponyme.png",
+      "description": ""
+    }
+  ],
+  "Zone6": [
+    {
+      "src": "OSM.png",
+      "description": "Fond OSM"
+    },
+    {
+      "src": "PlanIGN.png",
+      "description": "Fond de Plan IGN"
+    },
+    {
+      "src": "OrthoIGN",
+      "description": "Photographies aériennes IGN"
+    },
+    {
+      "src": "MNTLHD_Cosia-BatiBDUNI_Habillage-CourbesIGN_Toponyme.png",
+      "description": ""
+    },
+    {
+      "src": "MNTGE_OCSGE-RPG_Habillage-CourbesIGN_Toponyme.png",
+      "description": ""
+    },
+    {
+      "src": "MNSLHD_Cosia-BatiBDUNI_Habillage-CourbesIGN_Toponyme.png",
+      "description": ""
     }
   ]
 }
