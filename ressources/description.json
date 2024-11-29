@@ -18,15 +18,15 @@
     },
     {
       "src": "MNTLHD_OCSGE_Habillage_Toponyme.png",
-      "description": "Modèle numérique de terrain LidarHD avec OCSGE et Habillage et toponyme complet"
+      "description": "Modèle numérique de terrain LidarHD avec OCSGE et habillage et toponyme complet"
     },
     {
       "src": "MNTLHD_OCSGE_Habillage.png",
-      "description": "Modèle numérique de terrain LidarHD avec OCSGE et Habillage complet sans toponyme"
+      "description": "Modèle numérique de terrain LidarHD avec OCSGE et habillage complet sans toponyme"
     },
     {
       "src": "MNTLHD_Cosia_Habillage.png",
-      "description": "Modèle numérique de terrain LidarHD avec Cosia et Habillage complet"
+      "description": "Modèle numérique de terrain LidarHD avec Cosia et habillage complet"
     },
     {
       "src": "MNTLHD_Cosia_Habillage_Toponyme.png",
@@ -68,31 +68,31 @@
     },
     {
       "src": "MNTLHD_Cosia.png",
-      "description": ""
+      "description": "Modèle numérique de terrain LidarHD avec occupation du sol Cosia. Les bâtiments sont traités à part (BD UNI). Pas de routes, ni de surface hydro"
     },
     {
       "src": "MNTLHD_Cosia_Habillage-CourbesIGN.png",
-      "description": ""
+      "description": "Modèle numérique de terrain LidarHD avec occupation du sol Cosia. Les bâtiments sont traités à part (BD UNI). Pas de routes, ni de surface hydro. Courbes d eniveau issues du flux de données IGN"
     },
     {
       "src": "MNTLHD_Cosia_0Habillage0.png",
-      "description": ""
+      "description": "Modèle numérique de terrain LidarHD avec occupation du sol Cosia. Les bâtiments sont traités à part (BD UNI). Routes BD UNI et pas de surface hydro"
     },
     {
       "src": "MNTGE_Cosia_Habillage_Toponyme.png",
-      "description": ""
+      "description": "Modèle numérique de terrain issu de l'équipe Archivage, avec Habillage complet (Routes et surfaces hydro). Courbes de niveau générées automatiquement --> à revoir"
     },
     {
       "src": "MNSLHD_OCSGE.png",
-      "description": ""
+      "description": "Modèle numérique de surface sans habillage autre que les données OCSGE."
     },
     {
       "src": "MNSLHD_Cosia_0Habillage0.png",
-      "description": ""
+      "description": "Modèle numérique de surface avec données d'occupation du sol Cosia. Routes BD UNI sans toponymes"
     },
     {
       "src": "MNSLHD_Cosia_Habillage_Toponyme.png",
-      "description": ""
+      "description": "Modèle numérique de surface avec données d'occupation du sol Cosia. Habillage complet --> Courbes de niveau générées automatiquement à revoir"
     }
     
   ],
@@ -111,23 +111,23 @@
     },
     {
       "src": "MNTGE_Cosia.png",
-      "description": ""
+      "description": "Modèle numérique de terrain issu de l'équipe Archivage avec données d'occupation du sol Cosia"
     },
     {
       "src": "MNTLHD_Cosia_0Habillage0.png",
-      "description": ""
+      "description": "Modèle numérique de terrain Lidar HD avec Cosia (Le bâti est traité via la BD UNI). Routes BD UNI"
     },
     {
       "src": "MNTLHD_OCSGE_0Habillage0.png",
-      "description": ""
+      "description": "Modèle numérique de terrain Lidar HD avec OCSGE (Le bâti est traité via la BD UNI). Routes BD UNI"
     },
     {
       "src": "MNTLHD_OCSGE_Habillage_Toponyme.png",
-      "description": ""
+      "description": "Modèle numérique de terrain Lidar HD avec OCSGE Bâti OCSGE mais Routes et toponymes BD UNI. Courbes de niveau 50m générées automatiquement"
     },
     {
-      "src": "MNTLHD_Cosia_Habillage-hydro_Toponyme.png",
-      "description": ""
+      "src": "MNTLHD_OCSGE_Habillage-hydro_Toponyme.png",
+      "description": "Horrible..."
     }
   ],
   "Zone4": [
@@ -145,27 +145,27 @@
     },
     {
       "src": "MNTLHD_OCSGE_Habillage_Toponyme.png",
-      "description": ""
+      "description": "Modèle numérique de terrain Lidar HD avec OCSGE.Routes BD UNI avec toponymes."
     },
     {
       "src": "MNTGE_Cosia_0Habillage-CourbeIGN0.png",
-      "description": ""
+      "description": "Modèle numérique de terrain issu de l'équipe Archivage avec données d'occupation du sol Cosia et courbes IGN (flux)"
     },
     {
       "src": "MNSLHD_OCSGE_Habillage_Toponyme.png",
-      "description": ""
+      "description": "Modèle numérique de surface LidarHD avec données d'occupation du sol OCSGE. Habillage BD UNI et Toponymes"
     },
     {
       "src": "MNSLHD_NuageLHD.png",
-      "description": ""
+      "description": "Modèle numérique de surface avec nuage de point LidarHD classé"
     },
     {
       "src": "MNSLHD_Cosia-BatiBDUNI_Habillage_Toponyme.png",
-      "description": ""
+      "description": "Modèle numérique de surface avec données d'occupation du sol Cosia. Habillage complet -->Bati BD UNI (imprécision)"
     },
     {
       "src": "MNSLHD_Cosia_Habillage_Toponyme.png",
-      "description": ""
+      "description": "Modèle numérique de surface avec données d'occupation du sol Cosia. Habillage complet et toponymes"
     }
   ],
   "Zone5": [
@@ -183,15 +183,15 @@
     },
     {
       "src": "MNTLHD_Cosia_Habillage-courbeIGN_Toponyme.png",
-      "description": ""
+      "description": "Modèle numérique de terrain Lidar HD avec Cosia (Le bâti est traité via la BD UNI). Routes BD UNI. Courbes de niveau flux IGN"
     },
     {
       "src": "MNTLHD_Cosia_Habillage_Toponyme.png",
-      "description": ""
+      "description": "Modèle numérique de terrain Lidar HD avec Cosia (Le bâti est traité via la BD UNI). Routes BD UNI. Courbes de niveau automatiques"
     },
     {
       "src": "MNSLHD_Cosia_Habillage_Toponyme.png",
-      "description": ""
+      "description": "Modèle numérique de surface Lidar HD avec Cosia (Le bâti est traité via la BD UNI). Routes BD UNI."
     }
   ],
   "Zone6": [
@@ -209,15 +209,15 @@
     },
     {
       "src": "MNTLHD_Cosia-BatiBDUNI_Habillage-CourbesIGN_Toponyme.png",
-      "description": ""
+      "description": "Modèle numérique de terrain LidarHD avec Cosia et habillage complet --> Courbes IGN"
     },
     {
       "src": "MNTGE_OCSGE-RPG_Habillage-CourbesIGN_Toponyme.png",
-      "description": ""
+      "description": "Modèle numérique de terrain issu de l'équipe Archivage avec données d'occupation du sol OCSGE + RPG. Habillage complet avec courbes IGN et Toponymes"
     },
     {
       "src": "MNSLHD_Cosia-BatiBDUNI_Habillage-CourbesIGN_Toponyme.png",
-      "description": ""
+      "description": "Modèle numérique de surface LidarHD avec Cosia et habillage complet --> Courbes IGN"
     }
   ]
 }
