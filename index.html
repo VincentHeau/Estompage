@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
   <link rel="icon" href="ressources/favicon.png" type="image/png">
   <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol/ol.css" />
 </head>
 <body>
    <!-- Titre -->
@@ -23,18 +24,18 @@
           <a class="nav-link" href="#">Petite échelle</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/Estompage/echantillon_multidirectionnel/index.html">Moyenne échelle</a>
+          <a class="nav-link" href="./echantillon_multidirectionnel/index.html">Moyenne échelle</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/Estompage/echantillon_multidirectionnel/index.html">Grande échelle</a>
+          <a class="nav-link" href="./echantillon_multidirectionnel/index.html">Grande échelle</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/README.md">Documentation</a>
+          <a class="nav-link" href="./README.md">Documentation</a>
         </li>
       </ul>
     </div>
     <a class="navbar-brand" href="https://github.com/VincentHeau/Estompage">
-      <img src="/ressources/git.svg" width="30" height="30" alt="">
+      <img src="./ressources/git.svg" width="30" height="30" alt="">
     </a>
   </nav>
 
@@ -42,6 +43,9 @@
     <!-- Menu des zones avec des boutons radio -->
     <div class="d-flex justify-content-center mb-4">
         <div class="btn-group" role="group" aria-label="Zones Test">
+
+        <button id="toggle-view-btn" class="btn btn-outline-primary me-2">Côte à côte</button>
+
         <input type="radio" class="btn-check" name="zone" id="zone1" autocomplete="off" checked>
         <label class="btn btn-light" for="zone1" id="zone1-label">
             Zone 1
@@ -78,8 +82,23 @@
           <span class="tooltip-text">Les Frénods</span>
         </label>
 
+        <button id="emprise-btn" class="btn btn-outline-danger ms-2">Carte</button>
+
+        <div class="dropdown">
+          <button class="btn btn-outline-danger ms-2 dropdown-toggle rounded-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Légende
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="./ressources/legendes/legendeOCSGE.png">OCSGE</a>
+            <a class="dropdown-item" href="./ressources/legendes/legendeCosia.png">Cosia</a>
+            <a class="dropdown-item" href="./ressources/legendes/legendeNuageLHD.png">Nuage Lidar HD</a>
+          </div>
+        </div>
+
         </div>
     </div>
+
+    <div id="map" style="width: 100%; height: 80vh; display: none;"></div>    
 
     <!-- Choix des images -->
     <div class="row mb-4">
@@ -90,7 +109,7 @@
             </select>
             <a type="button"
                     id="left-info-btn" 
-                    href="/Estompage/ressources/description.json"
+                    href="./ressources/description.json"
                     class="btn btn-outline-info left-info-btn" 
                     data-bs-toggle="tooltip" 
                     data-bs-placement="top" 
@@ -104,13 +123,22 @@
             </select>
             <a type="button"
                     id="right-info-btn" 
-                    href="/Estompage/ressources/description.json"
+                    href="./ressources/description.json"
                     class="btn btn-outline-info right-info-btn" 
                     data-bs-toggle="tooltip" 
                     data-bs-placement="top" 
                     title="Description indisponible">🛈</a>
           </div>
         </div>
+    </div>
+
+    <div id="side-by-side-view" class="d-flex justify-content-center" style="display: none;">
+      <div id="left-image-container" style="margin-right: 10px;">
+        <img id="left-image" src="" style="max-width: 100%; height: auto;">
+      </div>
+      <div id="right-image-container">
+        <img id="right-image" src="" style="max-width: 100%; height: auto;">
+      </div>
     </div>
 
 
@@ -121,12 +149,13 @@
   <div>
     <div id="juxtapose-hidden"></div>
   </div>
-  <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
 
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+  <!-- Openlayers -->
+  <script src="https://cdn.jsdelivr.net/npm/ol/dist/ol.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>
