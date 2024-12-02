@@ -4,6 +4,17 @@ const leftImageSelect = document.getElementById("left-image-select");
 const rightImageSelect = document.getElementById("right-image-select");
 const leftInfoButton = document.getElementById("left-info-btn");
 const rightInfoButton = document.getElementById("right-info-btn");
+const empriseBtn = document.getElementById('emprise-btn');
+const mapDiv = document.getElementById('map');
+const juxtaposeDiv = document.getElementById('juxtapose-embed');
+const imageSelectors = document.querySelector('.row.mb-4');
+
+// Variables pour les éléments
+const toggleViewBtn = document.getElementById('toggle-view-btn');
+const sideBySideView = document.getElementById('side-by-side-view');
+const leftImage = document.getElementById('left-image');
+const rightImage = document.getElementById('right-image');
+
 
 const juxtaposeSelector = "#juxtapose-embed";
 let slider;
@@ -51,6 +62,8 @@ function updateSelectOptions(zone) {
 
         leftImageSelect.appendChild(leftOption);
         rightImageSelect.appendChild(rightOption);
+        
+
     });
 
     // Initialiser Juxtapose avec les premières options par défaut
@@ -79,6 +92,9 @@ document.querySelectorAll('input[name="zone"]').forEach(radio => {
             const zoneId = radio.id.replace("zone", "Zone"); // Convertir ID en nom de zone
             currentZone = zoneId;
             updateSelectOptions(currentZone); // Mettre à jour les menus déroulants et le slider
+            if (isSideBySide) {
+              updateSideBySideImages();
+            }
         }
     });
 });
@@ -133,10 +149,6 @@ fetch("ressources/description.json")
 
 // Gestion de la carte de l'emprise
 
-const empriseBtn = document.getElementById('emprise-btn');
-  const mapDiv = document.getElementById('map');
-  const juxtaposeDiv = document.getElementById('juxtapose-embed');
-  const imageSelectors = document.querySelector('.row.mb-4');
 
   let mapInitialized = false;
   let map;
@@ -146,6 +158,7 @@ const empriseBtn = document.getElementById('emprise-btn');
       mapDiv.style.display = 'block';
       juxtaposeDiv.style.display = 'none';
       imageSelectors.style.display = 'none';
+      sideBySideView.style.display = 'none';
       empriseBtn.textContent = 'Masquer la carte';
 
       // Initialiser la carte si ce n'est pas encore fait
@@ -156,6 +169,7 @@ const empriseBtn = document.getElementById('emprise-btn');
     } else {
       mapDiv.style.display = 'none';
       juxtaposeDiv.style.display = 'block';
+      sideBySideView.style.display = 'block';
       imageSelectors.style.display = 'flex';
       empriseBtn.textContent = 'Carte';
     }
@@ -220,11 +234,7 @@ const empriseBtn = document.getElementById('emprise-btn');
 
 
 // Mise à jour option images juxtaposée ou côte côte:
-// Variables pour les éléments
-const toggleViewBtn = document.getElementById('toggle-view-btn');
-const sideBySideView = document.getElementById('side-by-side-view');
-const leftImage = document.getElementById('left-image');
-const rightImage = document.getElementById('right-image');
+
 
 // Flag pour savoir quel mode est actif
 let isSideBySide = false;
