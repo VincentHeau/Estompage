@@ -1,4 +1,4 @@
-let imageData = {}; // Objet pour stocker les données JSON
+let imageData = {}; // le json des images
 
 const leftImageSelect = document.getElementById("left-image-select");
 const rightImageSelect = document.getElementById("right-image-select");
@@ -18,10 +18,10 @@ const rightImage = document.getElementById('right-image');
 
 const juxtaposeSelector = "#juxtapose-embed";
 let slider;
-let currentZone = "Zone1"; // Zone par défaut
+let currentZone = "Zone1"; // Zone par défaut à l'ouverture
 
 
-// Fonction pour initialiser le slider Juxtapose
+// Slider Juxtapose en ligne
 function initializeJuxtapose(leftSrc, rightSrc) {
     const images = [
         { src: leftSrc, label: "" },
@@ -36,18 +36,20 @@ function initializeJuxtapose(leftSrc, rightSrc) {
         startingPosition: "50"
     };
 
-    // Détruire l'ancien slider s'il existe
+    // maj
     const container = document.querySelector(juxtaposeSelector);
-    container.innerHTML = ""; // Nettoyer le conteneur
+    container.innerHTML = ""; 
 
     slider = new juxtapose.JXSlider(juxtaposeSelector, images, options);
 }
 
-// Fonction pour mettre à jour les options du menu déroulant et afficher la description
+
+/* Fonction pour maj les options du menu déroulant et afficher la description*/
+
 function updateSelectOptions(zone) {
     const options = imageData[zone] || [];
-    leftImageSelect.innerHTML = ""; // Effacer les options existantes
-    rightImageSelect.innerHTML = ""; // Effacer les options existantes
+    leftImageSelect.innerHTML = ""; 
+    rightImageSelect.innerHTML = ""; 
 
     // Ajouter les nouvelles options
     options.forEach(image => {
@@ -66,32 +68,31 @@ function updateSelectOptions(zone) {
 
     });
 
-    // Initialiser Juxtapose avec les premières options par défaut
+    // initialisation juxtapose
     if (options.length > 0) {
         const leftSrc = `ressources/${zone}/${options[0].src}`;
         const rightSrc = `ressources/${zone}/${options[1].src}`;
         initializeJuxtapose(leftSrc, rightSrc);
 
-        // Afficher la description de l'image gauche par défaut
+        // description
         const leftDescription = options[0].description || "Description indisponible";
         const rightDescription = options[1]?.description || "Description indisponible";
 
         leftInfoButton.title = leftDescription;
         rightInfoButton.title = rightDescription;
 
-        // Pré-sélectionner les premières options
         leftImageSelect.value = options[0].src;
         rightImageSelect.value = options[1].src;
     }
 }
 
-// Gestionnaire de changement pour les boutons radio des zones
+// gérer les boutons
 document.querySelectorAll('input[name="zone"]').forEach(radio => {
     radio.addEventListener("change", () => {
         if (radio.checked) {
-            const zoneId = radio.id.replace("zone", "Zone"); // Convertir ID en nom de zone
+            const zoneId = radio.id.replace("zone", "Zone"); // convertir ID en nom de zone
             currentZone = zoneId;
-            updateSelectOptions(currentZone); // Mettre à jour les menus déroulants et le slider
+            updateSelectOptions(currentZone); // maj les menus déroulants et le slider
             if (isSideBySide) {
               updateSideBySideImages();
             }
@@ -99,7 +100,7 @@ document.querySelectorAll('input[name="zone"]').forEach(radio => {
     });
 });
 
-// Gestionnaire de changement pour les menus déroulants
+// maj du menu déroulant
 leftImageSelect.addEventListener("change", () => {
     if (isSideBySide) {
         updateSideBySideImages();
@@ -108,16 +109,17 @@ leftImageSelect.addEventListener("change", () => {
             image => image.src === leftImageSelect.value
         );
         const leftSrc = `ressources/${currentZone}/${leftImageSelect.value}`;
-        const rightSrc = slider.imgAfter.image.src; // Garder l'image de droite actuelle
+        const rightSrc = slider.imgAfter.image.src;
         initializeJuxtapose(leftSrc, rightSrc);
 
 
-        // Mettre à jour le tooltip du bouton de gauche
+        
         const leftDescription = selectedImage?.description || "Description indisponible";
         leftInfoButton.title = leftDescription;
       }
 });
 
+// Même chose pour l'image de gauche
 rightImageSelect.addEventListener("change", () => {
     if (isSideBySide) {
         updateSideBySideImages();
@@ -126,21 +128,21 @@ rightImageSelect.addEventListener("change", () => {
             image => image.src === rightImageSelect.value
         );
         const rightSrc = `ressources/${currentZone}/${rightImageSelect.value}`;
-        const leftSrc = slider.imgBefore.image.src; // Garder l'image de gauche actuelle
+        const leftSrc = slider.imgBefore.image.src; 
         initializeJuxtapose(leftSrc, rightSrc);
 
-        // Mettre à jour le tooltip du bouton de droite
+       
         const rightDescription = selectedImage?.description || "Description indisponible";
         rightInfoButton.title = rightDescription;
       }
 });
 
-// Charger les données JSON et initialiser la page
+// charger les données JSON et initialiser la page
 fetch("ressources/description.json")
     .then(response => response.json())
     .then(data => {
-        imageData = data; // Stocker les données dans la variable globale
-        updateSelectOptions(currentZone); // Initialiser avec Zone 1
+        imageData = data; 
+        updateSelectOptions(currentZone);
     })
     .catch(error => {
         console.error("Erreur lors du chargement des données JSON :", error);
@@ -148,7 +150,6 @@ fetch("ressources/description.json")
 
 
 // Gestion de la carte de l'emprise
-
 
   let mapInitialized = false;
   let map;
@@ -180,22 +181,22 @@ fetch("ressources/description.json")
       target: 'map',
       layers: [
         new ol.layer.Tile({
-          source: new ol.source.OSM(), // Fond de carte OSM
+          source: new ol.source.OSM(), 
         }),
       ],
       view: new ol.View({
-        center: ol.proj.fromLonLat([6.1, 45.68]), // Coordonnées approximatives pour Tahiti
-        zoom: 11, // Niveau de zoom
+        center: ol.proj.fromLonLat([6.1, 45.68]), 
+        zoom: 11, 
       }),
     });
 
-    // Ajouter la couche GeoJSON
+    // fetch du geojson
     fetch('ressources/emprises.geojson')
       .then(response => response.json())
       .then(data => {
         const geojsonSource = new ol.source.Vector({
           features: new ol.format.GeoJSON().readFeatures(data, {
-            featureProjection: 'EPSG:3857', // Projection Web Mercator
+            featureProjection: 'EPSG:3857', // Projection Web Mercator = soucis avec le lambert
           }),
         });
 
@@ -204,14 +205,14 @@ fetch("ressources/description.json")
           style: feature => {
             const style = new ol.style.Style({
               fill: new ol.style.Fill({
-                color: 'rgba(0, 123, 255, 0.2)', // Couleur des zones
+                color: 'rgba(0, 123, 255, 0.2)', 
               }),
               stroke: new ol.style.Stroke({
                 color: '#007bff',
                 width: 2,
               }),
               text: new ol.style.Text({
-                text: feature.get('nom') || '', // Remplacer 'name' par le champ contenant l'étiquette
+                text: feature.get('nom') || '', 
                 font: 'bold 12px Arial',
                 fill: new ol.style.Fill({
                   color: '#000',
@@ -233,10 +234,10 @@ fetch("ressources/description.json")
 
 
 
-// Mise à jour option images juxtaposée ou côte côte:
+/* Mise à jour option images juxtaposée ou côte côte*/
 
 
-// Flag pour savoir quel mode est actif
+// variable pour savoir quel mode est actif
 let isSideBySide = false;
 
 // Fonction pour mettre à jour les images dans la vue côte à côte
@@ -258,46 +259,40 @@ function updateSideBySideImages() {
   }
 
 
-// Gestionnaire de clics pour le bouton de bascule
+// Clics pour le bouton de bascule
 toggleViewBtn.addEventListener('click', () => {
     console.log(isSideBySide);
   if (isSideBySide) {
-    // Passer au mode slider
-    sideBySideView.style.display = 'none'; // Masquer la vue côte à côte
-    juxtaposeDiv.style.display = 'block'; // Afficher le slider
-    toggleViewBtn.textContent = 'Côte à côte';
     
-    // Masquer les images pour la vue côte à côte
+    sideBySideView.style.display = 'none'; 
+    juxtaposeDiv.style.display = 'block'; 
+    toggleViewBtn.textContent = 'Côte à côte';
+
     leftImage.style.display = 'none';
     rightImage.style.display = 'none';
     
-    // Réinitialiser le slider
     const sliderContainer = document.querySelector(juxtaposeSelector);
-    sliderContainer.innerHTML = ''; // Réinitialiser le slider pour éviter les doublons
+    sliderContainer.innerHTML = ''; 
     
-    // Recréer le slider
     const leftSrc = leftImageSelect.value ? `ressources/${currentZone}/${leftImageSelect.value}` : '';
     const rightSrc = rightImageSelect.value ? `ressources/${currentZone}/${rightImageSelect.value}` : '';
     if (leftSrc && rightSrc) {
-      initializeJuxtapose(leftSrc, rightSrc); // Re-créer le slider avec les nouvelles images
+      initializeJuxtapose(leftSrc, rightSrc); 
     }
     
   } else {
-    // Passer au mode côte à côte
-    updateSideBySideImages(); // Mettre à jour les images pour le mode côte à côte
-    sideBySideView.style.display = 'flex'; // Afficher la vue côte à côte
-    juxtaposeDiv.style.display = 'none'; // Masquer le slider
+    updateSideBySideImages(); 
+    sideBySideView.style.display = 'flex';
+    juxtaposeDiv.style.display = 'none'; 
     toggleViewBtn.textContent = 'Slider';
     
-    // Masquer le slider
     const sliderContainer = document.querySelector(juxtaposeSelector);
-    sliderContainer.innerHTML = ''; // Réinitialiser le slider
-
+    sliderContainer.innerHTML = '';
     leftImage.style.display = 'block';
     rightImage.style.display = 'block';
   }
 
-  // Inverser le flag pour savoir quel mode est actif
+  
   isSideBySide = !isSideBySide;
 });
 
