@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carte La Réunion</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/openlayers/3.7.0/ol.css" integrity="sha512-rAwwD6utAk7YAjYA44dunMgk8SfnqOsWjsppyyRIpS7iapQ6vwdb6cJ4UlppueZOt7AlxBMnJhhskiDCQVc8HA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" href="../ressources/favicon.png" type="image/png">
+  <link rel="stylesheet" href="../style/style_bis.css">
+</head>
+<body>
+  <!-- <div class="info-button">
+    ℹ
+    <span class="tooltip-text">Carte de La Réunion avec différentes couches. Couche MNT jusqu'au zoom 14 sur l'ensemble de la Réunion. <br> Couche MNS 50 cm du zoom 15 au zoom 18 sur les deux zones encadrées. <br> Couche MNT 50cm sur les deux zones encadrées du zoom 15 au zoom 18 - Cosia en cours <br> MNS 20cm non disponible pour le moment</span>
+  </div> -->
+  <div id="zoom-indicator">
+    Zoom 14
+  </div>
+  <div class="maps-container">
+    <!-- Première carte -->
+    <div class="map-wrapper">
+      <div id="map1" class="map"></div>
+      <select id="layer-selector" class="layer-selector">
+        <option value="mns50cm">MNS 50cm</option>
+        <option value="mns50cmcosia">MNS 50cm Cosia</option>
+        <option value="mnt50cm">MNT 50cm</option>
+        <option value="mnt50cmcosia">MNT 50cm Cosia</option>
+        <option value="mns20cm">MNS 20cm</option>
+        <option value="plan-ign">Plan IGN</option>
+      </select>
+    </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/ol@latest/dist/ol.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ol-mapbox-style/dist/olms.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

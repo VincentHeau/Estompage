@@ -3,159 +3,400 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prototype d'Estompage pour Plan IGN (Petite Échelle)</title>
+  <title>Prototype d'Estompage IGN</title>
+
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
   <link rel="icon" href="ressources/favicon.png" type="image/png">
   <link rel="stylesheet" href="style/style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol/ol.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
 </head>
 <body>
-   <!-- Titre -->
-   <nav class="navbar navbar-expand-lg navbar-light bg-light mb-1 p-2">
-    <a class="navbar-brand" href="#">Prototype d'estompage pour Plan IGN</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Petite échelle</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="./echantillon_multidirectionnel/index.html">Moyenne échelle</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="./echantillon_multidirectionnel/index.html">Grande échelle</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="./README.md">Documentation</a>
-        </li>
-      </ul>
+
+  <!-- Barre en haut de la page (avec les différentes possibiltés de cartes) -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Prototype IGN</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="./petite_echelle/">Petite et Moyenne Échelle</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./grande_echelle/">Grande Échelle</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./grande_echelle/">Documentation</a>
+          </li>
+        </ul>
+        <a class="btn btn-outline-secondary" href="http://gitlab.dockerforge.ign.fr/vheau/planign-estompage-demontrateur/tree/master">
+          <img src="./ressources/git.svg" width="24" height="24" alt="GitHub"> Git
+        </a>
+      </div>
     </div>
-    <a class="navbar-brand" href="https://github.com/VincentHeau/Estompage">
-      <img src="./ressources/git.svg" width="30" height="30" alt="">
-    </a>
   </nav>
 
-  <div class="container mt-1">
-    <!-- Menu des zones avec des boutons radio -->
-    <div class="d-flex justify-content-center mb-4">
-        <div class="btn-group" role="group" aria-label="Zones Test">
+  <!-- Menu latéral -->
+  <div class="menu bg-light">
+    <h5>Petite Échelle</h5>
+    <a href="#">
+      Version 1
+    </a>
+    <a href="#">
+      <a href="./petit_echelle_v2/" target="_blank">Version 2 - PE</a>
+    </a>
+    <!-- <a href="#">
+      <span class="badge bg-warning">en cours</span><br>
+      <a href="#" target="_blank">Version 3 - PE/ME</a>
+    </a> -->
+    <h5>Grande Échelle</h5>
+    <a href="#ensg">ENSG</a>
+    <a href="#forcalquier">Forcalquier</a>
+    <a href="#ventoux">Mont Ventoux</a>
+    <a href="#coldufrene">Col du Frêne</a>
+    <a href="#coldufrene">Castelnaud</a>
+    <a href="#reunion">
+      La Réunion
+    </a>
 
-        <button id="toggle-view-btn" class="btn btn-outline-primary me-2">Côte à côte</button>
+    <a href="#gg">
+      La Flèche
+    </a>
 
-        <input type="radio" class="btn-check" name="zone" id="zone1" autocomplete="off" checked>
-        <label class="btn btn-light" for="zone1" id="zone1-label">
-            Zone 1
-            <span class="tooltip-text">Col du Frêne</span>
-          </label>
-
-        <input type="radio" class="btn-check" name="zone" id="zone2" autocomplete="off">
-        <label class="btn btn-light" for="zone2" id="zone2-label">
-            Zone 2
-            <span class="tooltip-text">Carouge</span>
-        </label>
-
-        <input type="radio" class="btn-check" name="zone" id="zone3" autocomplete="off">
-        <label class="btn btn-light" for="zone3" id="zone3-label">
-            Zone 3
-            <span class="tooltip-text">Dent d'Arclusaz</span>
-        </label>
-
-        <input type="radio" class="btn-check" name="zone" id="zone4" autocomplete="off">
-        <label class="btn btn-light" for="zone4" id="zone4-label">
-            Zone 4
-            <span class="tooltip-text">La Compôte</span>
-        </label>
-
-        <input type="radio" class="btn-check" name="zone" id="zone5" autocomplete="off">
-        <label class="btn btn-light" for="zone5" id="zone5-label">
-          Zone 5
-          <span class="tooltip-text">Chez Garins</span>
-        </label>
-
-        <input type="radio" class="btn-check" name="zone" id="zone6" autocomplete="off">
-        <label class="btn btn-light" for="zone6" id="zone6-label">
-          Zone 6
-          <span class="tooltip-text">Les Frénods</span>
-        </label>
-
-        <button id="emprise-btn" class="btn btn-outline-danger ms-2">Carte</button>
-
-        <div class="dropdown">
-          <button class="btn btn-outline-danger ms-2 dropdown-toggle rounded-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Légende
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="./ressources/legendes/legendeOCSGE.png">OCSGE</a>
-            <a class="dropdown-item" href="./ressources/legendes/legendeCosia.png">Cosia</a>
-            <a class="dropdown-item" href="./ressources/legendes/legendeNuageLHD.png">Nuage Lidar HD</a>
-          </div>
-        </div>
-
-        </div>
-    </div>
-
-    <div id="map" style="width: 100%; height: 80vh; display: none;"></div>    
-
-    <!-- Choix des images -->
-    <div class="row mb-4">
-        <div class="col-md-6">
-          <div class="d-flex align-items-center">
-            <select id="left-image-select" class="form-select me-2">
-              <!-- Options générées dynamiquement -->
-            </select>
-            <a type="button"
-                    id="left-info-btn" 
-                    href="./ressources/description.json"
-                    class="btn btn-outline-info left-info-btn" 
-                    data-bs-toggle="tooltip" 
-                    data-bs-placement="top" 
-                    title="Description indisponible">🛈</a>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="d-flex align-items-center">
-            <select id="right-image-select" class="form-select me-2">
-              <!-- Options générées dynamiquement -->
-            </select>
-            <a type="button"
-                    id="right-info-btn" 
-                    href="./ressources/description.json"
-                    class="btn btn-outline-info right-info-btn" 
-                    data-bs-toggle="tooltip" 
-                    data-bs-placement="top" 
-                    title="Description indisponible">🛈</a>
-          </div>
-        </div>
-    </div>
-
-    <div id="side-by-side-view" class="d-flex justify-content-center" style="display: none;">
-      <div id="left-image-container" style="margin-right: 10px;">
-        <img id="left-image" src="" style="max-width: 100%; height: auto;">
-      </div>
-      <div id="right-image-container">
-        <img id="right-image" src="" style="max-width: 100%; height: auto;">
-      </div>
-    </div>
-
-
-  <div id="container"  style="width: 100%; width: 100vh; margin: auto;">
-    <div id="juxtapose-embed"></div>
+    <a href="#reunion">
+      Rouen
+    </a>
+    <a href="#chauffe">
+      Mont Chauffé
+    </a>
+    <h5>-</h5>
+    <a href="#biblio">Bibliographie</a>
   </div>
 
-  <div>
-    <div id="juxtapose-hidden"></div>
-  </div>
+  <!-- Exemples -->
+  <div class="content">
+    <i>Ce site présente quelques prototypes d'estompages pour Plan IGN. <br>
+      
+      <p><a href="./grande_echelle/" target="_blank">Prototype ajustable (navigateur edge)</a></p>
+      <p><span class="badge bg-success">Prototypes tuilés</span><br><a href="./reunion/" target="_blank">Prototype sur la Réunion</a>
+        <br><a href="./gg/" target="_blank">Prototype sur La Flèche (bloc GG)</a>
+      </p>
+      <p><span class="badge bg-success">Schéma des données et des zones traitées</span>
+        <br>
+        <div class="row">
+        <div class="col-md-6 mb-3">
+          <a href="ressources/schema-donnee.png" target="_blank">
+            <img src="ressources/schema-donnee.png" alt="Schéma des données" class="img-fluid rounded" id="imageHover">
+          </a>
+        </div>
 
+        <div class="col-md-6 mb-3">
+          <a href="ressources/carte-france.png" target="_blank">
+            <img src="ressources/carte-france.png" alt="Schéma des données" class="img-fluid rounded">
+          </a>
+        </div>
+      </div>
+        
+      </p><br>
+
+      <p><span class="badge bg-warning">Description des traitements (en cours)</span><br>
+        <br><a href="rapport.pdf" download class="download-icon" title="Télécharger le rapport">
+          <i class="fas fa-file-pdf"></i> Rapport descriptif des traitements <br>
+          <a href="http://gitlab.dockerforge.ign.fr/vheau/planign-estompage-plugin" target="_blank">Code</a> pour l'extraction et le traitement des couches Lidar <br>
+      </a>
+      </p>
+      <br><p><span class="badge bg-success">Résultats sur les différentes zones</span><br>
+    </i>
+
+
+    
+    <!-- ENSG Géomatique -->
+    <div id="ensg" class="border mb-5 p-2">
+      <h2>ENSG Géomatique</h2>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <a href="ressources/ensg.png" target="_blank">
+            <img src="ressources/ensg.png" alt="ENSG - Résultat 2" class="img-fluid rounded" id="imageHover">
+          </a>
+        </div>
+        <div class="col-md-6 mb-3">
+          <a href="ressources/ensg_planIGN.png" target="_blank">
+            <img src="ressources/ensg_planIGN.png" alt="ENSG - Résultat 2" class="img-fluid rounded">
+          </a>
+        </div>
+        <div class="col-md-6 mb-3">
+          <a href="ressources/ensg2.png" target="_blank">
+            <img src="ressources/ensg2.png" alt="ENSG - Résultat 1" class="img-fluid rounded">
+          </a>
+        </div>
+        <div class="col-md-6 mb-3">
+          <a href="ressources/marne.png" target="_blank">
+            <img src="ressources/marne.png" alt="ENSG - Résultat 2" class="img-fluid rounded">
+          </a>
+        </div>
+      </div>
+      <a class="btn btn-light" href="grande_echelle/index.html">Voir la carte complète (Ouvrir sous edge)</a>
+    </div>
+
+    <!-- Forcalquier -->
+    <div id="forcalquier" class="mb-5">
+      <h2>Forcalquier</h2>
+      <p>Centre IGN de Forcalquier (04)</p>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <a href="ressources/forca.png" target="_blank">
+            <img src="ressources/forca.png" alt="Forcalquier - Résultat 1" class="img-fluid rounded">
+          </a>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- Mont Ventoux -->
+    <div id="ventoux" class="mb-5">
+      <h2>Mont Ventoux</h2>
+      <p>Test d'utilisation du MNT-LIDARHD avec une occupation du sol Cosia</p>
+ 
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <a href="ressources/ventoux2.png" target="_blank">
+            <img src="ressources/ventoux2.png" alt="Ventoux - " class="img-fluid rounded">
+          </a>
+        </div>
+        <div class="col-md-6 mb-3">
+          <a href="ressources/ventoux.png" target="_blank">
+            <img src="ressources/ventoux.png" alt="Ventoux - " class="img-fluid rounded">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Col du Frêne -->
+    <div id="coldufrene" class="mb-5">
+      <h2>Col du Frêne</h2>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <a href="ressources/frene.png" target="_blank">
+            <img src="ressources/frene.png" alt="Col du Frêne - Résultat 1" class="img-fluid rounded">
+          </a>
+        </div>
+        <div class="col-md-6 mb-3">
+          <a href="ressources/frene_planIGN.png" target="_blank">
+            <img src="ressources/frene_planIGN.png" alt="Col du Frêne - Résultat 1" class="img-fluid rounded">
+          </a>
+        </div>
+      </div>
+      <a class="btn btn-light" href="grande_echelle/index.html">Voir la carte complète</a>
+    </div>
+
+    <!-- Castelnaud -->
+    <div id="castelnaud" class="mb-5">
+      <h2>Castelnaud</h2>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <a href="ressources/castelnaud2.png" target="_blank">
+            <img src="ressources/castelnaud2.png" alt="Castelnaud - Résultat 2" class="img-fluid rounded">
+          </a>
+        </div>
+        <div class="col-md-6 mb-3">
+          <a href="ressources/castelnaud_mnt.png" target="_blank">
+            <img src="ressources/castelnaud_mnt.png" alt="Castelnaud - Résultat avec MNT et bâtiments" class="img-fluid rounded">
+          </a>
+        </div>
+        <div class="col-md-6 mb-3">
+          <a href="ressources/castelnaud_qgis.png" target="_blank">
+            <img src="ressources/castelnaud_qgis.png" alt="Castelnaud QGIS et tuiles vectorielles" class="img-fluid rounded">
+          </a>
+        </div>
+      </div>
+      <a class="btn btn-light" href="grande_echelle/index.html">Voir la carte complète</a>
+    </div>
+
+    <!-- La réunion -->
+    <div id="reunion" class="mb-5">
+      <h2>La Réunion</h2>
+      <a class="btn btn-light" href="reunion/index.html">Voir la carte complète</a>
+      <p>Format 1: MNS 50cm, Couche de pente produite à partir de ce MNS, Couche d'ombre produite par algorithme de rayshading, Carte de classe COG
+      </p>
+      <p>Format 2: MNT 50cm, Couche de pente produite à partir de ce MNT, Courbes de niveau, Carte des classes
+      </p>
+      <p>Format 3: MNT 50cm, Couche de pente produite à partir de ce MNT, Courbes de niveau, Cosia en occupation du sol
+      </p>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <a href="ressources/reunion_base.png" target="_blank">
+            <img src="ressources/reunion_base.png" alt="reunion - Général" class="img-fluid rounded">
+          </a>
+        </div>
+        <div class="col-md-6 mb-3">
+          <a href="ressources/reunion4.png" target="_blank">
+            <img src="ressources/reunion4.png" alt="reunion - Résultat 4" class="img-fluid rounded">
+          </a>
+        </div>
+        <div class="col-md-6 mb-3">
+          <a href="ressources/reunion2.png" target="_blank">
+            <img src="ressources/reunion2.png" alt="reunion - Résultat 2" class="img-fluid rounded">
+          </a>
+        </div>
+        <div class="col-md-6 mb-3">
+          <a href="ressources/reunion3.png" target="_blank">
+            <img src="ressources/reunion3.png" alt="reunion - Résultat 3" class="img-fluid rounded">
+          </a>
+        </div>
+        <div class="col-md-6 mb-3">
+          <a href="ressources/reunion1.png" target="_blank">
+            <img src="ressources/reunion1.png" alt="reunion - Résultat 1" class="img-fluid rounded">
+          </a>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <a href="ressources/reunion5.png" target="_blank">
+            <img src="ressources/reunion5.png" alt="reunion - Résultat 5" class="img-fluid rounded">
+          </a>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <a href="ressources/reunion_2000.gif" target="_blank">
+            <img src="ressources/reunion_2000.gif" alt="reunion - GIF au 1/2000" class="img-fluid rounded">
+          </a>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <a href="ressources/reunion_15000.gif" target="_blank">
+            <img src="ressources/reunion_15000.gif" alt="reunion - GIF au 1/15000" class="img-fluid rounded">
+          </a>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- Bloc GG -->
+    <div id="gg" class="mb-5">
+      <h2>Série de tests sur le bloc GG</h2>
+      <a class="btn btn-light" href="gg/index.html">Voir la carte complète</a>
+      <p>Deux résolutions de MNT différentes (50cm et 20cm). L'occupation du sol sur cette zone n'inclue pas Cosia ni le parcellaire graphique
+      </p>
+      
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <a href="ressources/gg1.png" target="_blank">
+            <img src="ressources/gg1.png" alt="GG - Résultat 1" class="img-fluid rounded">
+          </a>
+        </div>
+        <div class="col-md-6 mb-3">
+          <a href="ressources/gg20cm.png" target="_blank">
+            <img src="ressources/gg20cm.png" alt="Castelnaud - Résultat avec MNT et bâtiments" class="img-fluid rounded">
+          </a>
+        </div>
+        <div class="col-md-6 mb-3">
+          <a href="ressources/gg50cm.png" target="_blank">
+            <img src="ressources/gg50cm.png" alt="Castelnaud QGIS et tuiles vectorielles" class="img-fluid rounded">
+          </a>
+        </div>
+        <div class="col-md-6 mb-3">
+          <a href="ressources/gg50cm2.png" target="_blank">
+            <img src="ressources/gg50cm2.png" alt="Castelnaud QGIS et tuiles vectorielles" class="img-fluid rounded">
+          </a>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- Rouen -->
+    <div id="gg" class="mb-5">
+      <h2>Rouen</h2>
+      <p>Quelques captures en MNS 50cm </p>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <a href="ressources/rouen.png" target="_blank">
+            <img src="ressources/rouen.png" alt="Rouen - Résultat 1" class="img-fluid rounded">
+          </a>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <a href="ressources/rouen2.png" target="_blank">
+            <img src="ressources/rouen2.png" alt="Rouen - Résultat 1" class="img-fluid rounded">
+          </a>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <a href="ressources/rouen3.png" target="_blank">
+            <img src="ressources/rouen3.png" alt="Rouen - Résultat 1" class="img-fluid rounded">
+          </a>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <a href="ressources/rouen4.png" target="_blank">
+            <img src="ressources/rouen4.png" alt="Rouen - Résultat 1" class="img-fluid rounded">
+          </a>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- Mont Chauffé -->
+    <div id="chauffe" class="mb-5">
+      <h2>Mont Chauffé</h2>
+      <p>Quelques essais sur MNT utilisant le MNS pour les ruptures de pentes et les ombres portées. Ajout d'orthophotos, Cosia et carte des pentes en occupation du sol</p>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <a href="ressources/bise1.png" target="_blank">
+            <img src="ressources/bise1.png" alt="Bise - Résultat 1" class="img-fluid rounded">
+          </a>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <a href="ressources/bise2.png" target="_blank">
+            <img src="ressources/bise2.png" alt="Bise - Résultat 1" class="img-fluid rounded">
+          </a>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <a href="ressources/bise3.png" target="_blank">
+            <img src="ressources/bise3.png" alt="Bise - Résultat 1" class="img-fluid rounded">
+          </a>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <a href="ressources/bise4.png" target="_blank">
+            <img src="ressources/bise4.png" alt="Bise - Résultat 1" class="img-fluid rounded">
+          </a>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- Bibliographie -->
+    <div id="biblio" class="mb-5">
+      <h2>Bibliographie</h2>
+      <ul>
+        <li><a href="https://github.com/jgaffuri/CartoHD" target="_blank">Gaffuri, J. CartoHD</a> - Beaucoup de tests très intéressants</li>
+        <li><a href="https://popups.uliege.be/0770-7576/index.php?file=1&id=2544" target="_blank">Donnay, J.-P. (2000). L'INTÉGRATION DE L'ESTOMPAGE. Bulletin de la Société Géographique de Liège.</a></li>
+        <li><a href="https://www.researchgate.net/scientific-contributions/Roman-Geisthoevel-81215966" target="_blank">Geisthövel, R. (2017). Automatic Swiss style rock depiction.</a></li>
+        <li><a href="https://berniejenny.info/pdf/2006_JennyHurni_SwissStyleShading.pdf" target="_blank">Hurni, B. J. (2006). Swiss-Style Colour Relief Shading Modulated by Elevation.</a></li>
+        <li><a href="https://www.researchgate.net/publication/228913016_Swiss_Style_Relief_Shading_Methodology_Knowledge_base_for_further_development_and_application_in_digital_cartography" target="_blank">Stefan Räber, B. J. (s.d.). SWISS STYLE RELIEF SHADING METHODOLOGY. Zurich.</a></li>
+      </ul>
+
+    </div>
+
+
+
+    </div>
+
+
+  </div>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
-  <!-- Openlayers -->
-  <script src="https://cdn.jsdelivr.net/npm/ol/dist/ol.js"></script>
-  <script src="js/script.js"></script>
 </body>
 </html>

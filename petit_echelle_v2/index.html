@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plan IGN PE avec estompage</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/openlayers/3.7.0/ol.css" integrity="sha512-rAwwD6utAk7YAjYA44dunMgk8SfnqOsWjsppyyRIpS7iapQ6vwdb6cJ4UlppueZOt7AlxBMnJhhskiDCQVc8HA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../style/style_bis.css">
+</head>
+<body>
+  <div id="zoom-indicator">
+    Zoom 3
+  </div>
+  <div class="maps-container">
+    <!-- Première carte -->
+    <div class="map-wrapper">
+      <div id="map1" class="map"></div>
+      <select id="layer-selector" class="layer-selector">
+        <option value="PE">PE</option>
+        <option value="plan-ign">Plan IGN</option>
+      </select>
+    </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/ol@latest/dist/ol.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

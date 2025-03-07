@@ -1,36 +1,60 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1020; /* Toujours au-dessus */
+}
 
-  .image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
+.menu {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  width: 140px;
+  height: 100%;
+  padding: 15px;
+  overflow-y: auto;
+}
 
-  .juxtapose img {
-    height: 100%;
-    object-fit: cover;
-  }
+.menu a {
+  color: black;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 10px;
+}
 
-  #coordinates {
-    font-size: 18px;
-    color: #333;
-    font-weight: bold;
-  }
+.menu a:hover {
+  background-color: #d0d4d8;
+  padding-left: 5px;
+  border-radius: 3px;
+}
 
-  .tooltip-text {
-    display: none; /* Masquer le texte par défaut */
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    padding: 5px;
-    border-radius: 3px;
-    font-size: 14px;
-    margin-top: 10px;
-    margin-left: 10px;
-  }
-  
-  .btn:hover .tooltip-text {
-    display: block; /* Afficher le texte au survol */
-  }
+.content {
+  margin-left: 180px;
+  padding: 20px;
+  padding-top: 70px;
+}
+
+.img-comparison img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1{
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.download-icon {
+  font-size: 18px;
+  color: rgba(83, 80, 80, 0.377);
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.download-icon:hover {
+  color: darkred;
+  transform: scale(1.2);
+}
+

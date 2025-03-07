@@ -70,7 +70,7 @@
 				"icon-size": { "stops": [[15, 0.33], [17, 0.6]] }
 			},
 			"paint": {
-                "text-color": "#FFFFFF",
+                "text-color": "#000000",
 				"icon-color": "#D3D3D3"
 			}
 		},
@@ -229,7 +229,7 @@
                 "text-font": ["Source Sans Pro Italic"]
 			},
 			"paint": {
-                "text-color": "#FFFFFF"
+                "text-color": "#000000"
 			}
 		},
 		{
@@ -255,7 +255,7 @@
                 "text-font": ["Source Sans Pro Italic"]
 			},
 			"paint": {
-                "text-color": "#FFFFFF"
+                "text-color": "#000000"
 			}
 		},
 		{
