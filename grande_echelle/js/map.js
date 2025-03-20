@@ -141,91 +141,91 @@ class LayerControl {
 }
 
 // Navigation entre zones
-class ZoneNavigationControl {
-    onAdd(map) {
-        this.map = map;
+// class ZoneNavigationControl {
+//     onAdd(map) {
+//         this.map = map;
 
-        this.container = document.createElement('div');
-        this.container.className = 'maplibregl-ctrl dropdown';
+//         this.container = document.createElement('div');
+//         this.container.className = 'maplibregl-ctrl dropdown';
 
-        const dropdownButton = document.createElement('button');
-        dropdownButton.className = 'btn btn-secondary dropdown-toggle';
-        dropdownButton.type = 'button';
-        dropdownButton.id = 'dropdownMenuButton';
-        dropdownButton.setAttribute('data-bs-toggle', 'dropdown');
-        dropdownButton.setAttribute('aria-expanded', 'false');
-        dropdownButton.textContent = 'Choix de la zone';
+//         const dropdownButton = document.createElement('button');
+//         dropdownButton.className = 'btn btn-secondary dropdown-toggle';
+//         dropdownButton.type = 'button';
+//         dropdownButton.id = 'dropdownMenuButton';
+//         dropdownButton.setAttribute('data-bs-toggle', 'dropdown');
+//         dropdownButton.setAttribute('aria-expanded', 'false');
+//         dropdownButton.textContent = 'Choix de la zone';
 
-        this.container.appendChild(dropdownButton);
+//         this.container.appendChild(dropdownButton);
 
-        const dropdownMenu = document.createElement('ul');
-        dropdownMenu.className = 'dropdown-menu';
-        dropdownMenu.setAttribute('aria-labelledby', 'dropdownMenuButton');
+//         const dropdownMenu = document.createElement('ul');
+//         dropdownMenu.className = 'dropdown-menu';
+//         dropdownMenu.setAttribute('aria-labelledby', 'dropdownMenuButton');
 
-        Object.keys(zones).forEach(zoneKey => {
-            const zone = zones[zoneKey];
+//         Object.keys(zones).forEach(zoneKey => {
+//             const zone = zones[zoneKey];
     
-            const dropdownItem = document.createElement('li');
-            const itemButton = document.createElement('button');
-            itemButton.className = 'dropdown-item';
-            itemButton.textContent = `${zoneKey}`;
-            itemButton.addEventListener('click', () => {
-                this.navigateToZone(zoneKey, zone);
-            });
+//             const dropdownItem = document.createElement('li');
+//             const itemButton = document.createElement('button');
+//             itemButton.className = 'dropdown-item';
+//             itemButton.textContent = `${zoneKey}`;
+//             itemButton.addEventListener('click', () => {
+//                 this.navigateToZone(zoneKey, zone);
+//             });
     
-            dropdownItem.appendChild(itemButton);
-            dropdownMenu.appendChild(dropdownItem);
-        });
+//             dropdownItem.appendChild(itemButton);
+//             dropdownMenu.appendChild(dropdownItem);
+//         });
     
-        this.container.appendChild(dropdownMenu);
+//         this.container.appendChild(dropdownMenu);
     
-        return this.container;
-    }
+//         return this.container;
+//     }
     
 
-    navigateToZone(zoneKey, zone) {
-        this.map.flyTo({ center: zone.center, zoom: zone.zoom });
+//     navigateToZone(zoneKey, zone) {
+//         this.map.flyTo({ center: zone.center, zoom: zone.zoom });
 
-        Object.entries(zone.layers).forEach(([layerKey, layer]) => {
-            const sourceId = layerKey;
-            const layerId = `${layerKey}-layer`;
+//         Object.entries(zone.layers).forEach(([layerKey, layer]) => {
+//             const sourceId = layerKey;
+//             const layerId = `${layerKey}-layer`;
             
-            if (this.map.getSource(sourceId)) {
+//             if (this.map.getSource(sourceId)) {
                 
-                this.map.getSource(sourceId).updateImage({
-                    url: layer.url,
-                    coordinates: layer.extent4326
-                });
-            } else {
-                this.map.addSource(sourceId, {
-                    type: 'image',
-                    url: layer.url,
-                    coordinates: layer.extent4326
-                });
+//                 this.map.getSource(sourceId).updateImage({
+//                     url: layer.url,
+//                     coordinates: layer.extent4326
+//                 });
+//             } else {
+//                 this.map.addSource(sourceId, {
+//                     type: 'image',
+//                     url: layer.url,
+//                     coordinates: layer.extent4326
+//                 });
 
-                this.map.addLayer({
-                    id: layerId,
-                    type: 'raster',
-                    source: sourceId,
-                    paint: { 'raster-opacity': layer.opacity || 0.5 }
-                });
-            }
-        });
+//                 this.map.addLayer({
+//                     id: layerId,
+//                     type: 'raster',
+//                     source: sourceId,
+//                     paint: { 'raster-opacity': layer.opacity || 0.5 }
+//                 });
+//             }
+//         });
 
-        if (this.layerControl) {
-            this.layerControl.updateLayers(zone.layers);
-        }
-    }
+//         if (this.layerControl) {
+//             this.layerControl.updateLayers(zone.layers);
+//         }
+//     }
 
-    setLayerControl(layerControl) {
-        this.layerControl = layerControl;
-    }
+//     setLayerControl(layerControl) {
+//         this.layerControl = layerControl;
+//     }
 
-    onRemove() {
-        this.container.parentNode.removeChild(this.container);
-        this.map = undefined;
-    }
-}
+//     onRemove() {
+//         this.container.parentNode.removeChild(this.container);
+//         this.map = undefined;
+//     }
+// }
 
 map.on('load', () => {
     if (Object.keys(zones).length > 0) {
