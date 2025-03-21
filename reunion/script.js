@@ -69,7 +69,7 @@ function getLayerDetails(selectedValue) {
       };
     case 'mns20cm':
       return {
-        url: 'https://raw.githubusercontent.com/VincentHeau/server-carto-lidarHD/refs/heads/main/tuilesMNSReunion20cm/{z}/{x}/{y}.png',
+        url: 'https://raw.githubusercontent.com/VincentHeau/server-carto-lidarHD/refs/heads/main/tuilesMNS20cmReunion/{z}/{x}/{y}.png',
         isVector: false,
         layerType: 'XYZ',
       };
