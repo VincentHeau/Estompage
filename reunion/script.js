@@ -270,7 +270,7 @@ document.getElementById('layer-selector').addEventListener('change', (event) => 
   const newLayer = createLayer(url, isVector, layerType);
   updateLayerURL(map, newLayer);
   if (selectedValue !== 'plan-ign') {
-    const useAlternativeStyle = (selectedValue === 'mns50cm' || selectedValue === 'mns50cmcosia');
+    const useAlternativeStyle = (selectedValue === 'mns50cm' || selectedValue === 'mns50cmcosia' || selectedValue === 'mns20cm'|| selectedValue === 'mnt50cmcosia');
     addToponymLayer(map, useAlternativeStyle);
   }
   else{
