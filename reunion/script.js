@@ -137,6 +137,7 @@ function addToponymLayer(map, useAlternativeStyle) {
 
   vectorTileLayer.setZIndex(1000);
   vectorTileLayer.set('isToponymLayer', true);
+  console.log("test")
   map.addLayer(vectorTileLayer);
 }
 
@@ -270,7 +271,7 @@ document.getElementById('layer-selector').addEventListener('change', (event) => 
   const newLayer = createLayer(url, isVector, layerType);
   updateLayerURL(map, newLayer);
   if (selectedValue !== 'plan-ign') {
-    const useAlternativeStyle = (selectedValue === 'mns50cm' || selectedValue === 'mns50cmcosia' || selectedValue === 'mns20cm'|| selectedValue === 'mnt50cmcosia');
+    const useAlternativeStyle = (selectedValue === 'mns50cm' || selectedValue === 'mns50cmcosia' || selectedValue === 'mns20cm'|| selectedValue === 'mnt50cmcosia'|| selectedValue === 'mnt50cm');
     addToponymLayer(map, useAlternativeStyle);
   }
   else{
