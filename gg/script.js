@@ -1,3 +1,8 @@
+const attributions =
+  '<div id="intro-message" style="font-size: 16px; font-family: Arial, sans-serif; text-align: left; padding: 15px; border: 1px solid rgb(179, 197, 212); border-radius: 8px; background-color: rgba(255, 255, 255, 0.75); max-width: 95%; margin: 5px auto; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">' +
+  '<p style="margin: 0;">Démonstrateur pour le Plan IGN Lidar. Ce site vous permet d’explorer des versions tuilées du prototype. Vous pouvez ajuster l’apparence de la carte selon vos préférences en choisissant l’un des styles proposés.</p>' +
+  '</div>';
+
 
 function createMap(targetId) {
   return new ol.Map({
@@ -5,6 +10,7 @@ function createMap(targetId) {
     layers: [
       new ol.layer.Tile({
         source: new ol.source.XYZ({
+          attributions: attributions,
           url: 'https://raw.githubusercontent.com/VincentHeau/server-carto-lidarHD/refs/heads/main/tuilesMNS50cmGG/{z}/{x}/{y}.png', 
         }),
       }),

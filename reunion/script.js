@@ -1,10 +1,18 @@
-// Fonction pour créer une carte OpenLayers avec vos tuiles GitHub
+const attributions =
+  '<div id="intro-message" style="font-size: 16px; font-family: Arial, sans-serif; text-align: left; padding: 15px; border: 1px solid rgb(179, 197, 212); border-radius: 8px; background-color: rgba(255, 255, 255, 0.75); max-width: 95%; margin: 5px auto; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">' +
+  '<p style="margin: 0;">Démonstrateur pour le Plan IGN Lidar. Ce site vous permet d’explorer des versions tuilées du prototype. Vous pouvez ajuster l’apparence de la carte selon vos préférences en choisissant l’un des styles proposés.</p>' +
+  '<p style="margin: 10px 0 0 0;">Pour chaque style sélectionné, des zones spécifiques visibles à différents niveaux de zoom, allant de <strong>16 à 18</strong>, sont affichées. La zone prototypée est encadrée.</p>' +
+  '</div>';
+
+
+
 function createMap(targetId) {
   return new ol.Map({
     target: targetId, // ID du conteneur HTML pour la carte
     layers: [
       new ol.layer.Tile({
         source: new ol.source.XYZ({
+          attributions: attributions,
           url: 'https://raw.githubusercontent.com/VincentHeau/server-carto-lidarHD/refs/heads/main/tuilesMNSReunion/{z}/{x}/{y}.png',
           
         }),
@@ -40,10 +48,10 @@ function updateLayerURL(map, newLayer) {
   });
   map.addLayer(newLayer);
 
-  // Réajouter la couche GeoJSON si elle existe déjà
-  if (geojsonLayer && !map.getLayers().getArray().includes(geojsonLayer)) {
-    map.addLayer(geojsonLayer);
-  }
+  // // Réajouter la couche GeoJSON si elle existe déjà
+  // if (geojsonLayer && !map.getLayers().getArray().includes(geojsonLayer)) {
+  //   map.addLayer(geojsonLayer);
+  // }
 }
 
 // Fonction pour obtenir les détails des couches
@@ -137,7 +145,6 @@ function addToponymLayer(map, useAlternativeStyle) {
 
   vectorTileLayer.setZIndex(1000);
   vectorTileLayer.set('isToponymLayer', true);
-  console.log("test")
   map.addLayer(vectorTileLayer);
 }
 
@@ -161,6 +168,7 @@ function createLayer(url, isVector, layerType) {
     return new ol.layer.Tile({
       source: new ol.source.WMTS({
         url: url,
+        attributions: attributions,
         layer: 'GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2',
         matrixSet: 'PM',
         format: 'image/png',
@@ -175,6 +183,7 @@ function createLayer(url, isVector, layerType) {
   } else if (isVector) {
     return new ol.layer.VectorTile({
       source: new ol.source.VectorTile({
+        attributions: attributions,
         format: new ol.format.MVT(),
         url: url,
       }),
@@ -182,44 +191,152 @@ function createLayer(url, isVector, layerType) {
   } else {
     return new ol.layer.Tile({
       source: new ol.source.XYZ({
+        attributions: attributions,
         url: url,
       }),
     });
   }
 }
 
+function addGeoJSONLayer(map, style_choice) {
+  let geojsonObject;
 
-// Fonction pour ajouter un objet GeoJSON (un carré englobant Mafate)
-function addGeoJSONLayer(map) {
-  const geojsonObject = {
-    'type': 'Feature',
-    'geometry': {
-      'type': 'Polygon',
-      'coordinates': [
-        [
-          [55.3228, -21.0829], // Coin inférieur gauche
-          [55.4416, -21.0829], // Coin inférieur droit
-          [55.4416, -20.9728], // Coin supérieur droit
-          [55.3228, -20.9728], // Coin supérieur gauche
-          [55.3228, -21.0829],
-        ],
-        [
-          [55.2598, -20.9728], // Coin inférieur gauche
-          [55.3228, -20.9728], // Coin inférieur droit
-          [55.3228, -20.9138], // Coin supérieur droit
-          [55.2598, -20.9138], // Coin supérieur gauche
-          [55.2598, -20.9728], // Retour au coin supérieur gauche
-        ],
-        [
-          [55.6500, -21.3], // Coin inférieur gauche (approximatif)
-          [55.8000, -21.3], // Coin inférieur droit
-          [55.8000, -21.2], // Coin supérieur droit
-          [55.6500, -21.2], // Coin supérieur gauche
-          [55.6500, -21.3]  // Retour au point de départ
-        ]
-      ]
-    }
-  };
+  // Définir le GeoJSON selon le style sélectionné
+  switch(style_choice) {
+    case 'mns20cm':
+      geojsonObject = {
+        'type': 'Feature',
+        'geometry': {
+          'type': 'Polygon',
+          'coordinates': [
+            [
+              [55.289, -20.959], // Coin inférieur gauche
+              [55.318, -20.959], // Coin inférieur droit
+              [55.318, -20.92], // Coin supérieur droit
+              [55.289, -20.92], // Coin supérieur gauche
+              [55.289, -20.959], // Retour au coin inférieur gauche
+            ]            
+          ]
+        }
+      };
+      break;
+
+    case 'mns50cm':
+      geojsonObject = {
+        'type': 'Feature',
+        'geometry': {
+          'type': 'Polygon',
+          'coordinates': [
+            [
+              [55.3228, -21.0829], // Coin inférieur gauche
+              [55.4416, -21.0829], // Coin inférieur droit
+              [55.4416, -20.9728], // Coin supérieur droit
+              [55.3228, -20.9728], // Coin supérieur gauche
+              [55.3228, -21.0829],
+            ],
+            [
+              [55.2598, -20.9728], // Coin inférieur gauche
+              [55.3228, -20.9728], // Coin inférieur droit
+              [55.3228, -20.9138], // Coin supérieur droit
+              [55.2598, -20.9138], // Coin supérieur gauche
+              [55.2598, -20.9728], // Retour au coin supérieur gauche
+            ],
+            [
+              [55.6500, -21.3], // Coin inférieur gauche (approximatif)
+              [55.8000, -21.3], // Coin inférieur droit
+              [55.8000, -21.2], // Coin supérieur droit
+              [55.6500, -21.2], // Coin supérieur gauche
+              [55.6500, -21.3]  // Retour au point de départ
+            ]
+          ]
+        }
+      };
+      break;
+
+    case 'mnt50cm':
+      geojsonObject = {
+        'type': 'Feature',
+        'geometry': {
+          'type': 'Polygon',
+          'coordinates': [
+            [
+              [55.3228, -21.0829], // Coin inférieur gauche
+              [55.4416, -21.0829], // Coin inférieur droit
+              [55.4416, -20.9728], // Coin supérieur droit
+              [55.3228, -20.9728], // Coin supérieur gauche
+              [55.3228, -21.0829]
+            ]
+          ]
+        }
+      };
+      break;
+
+    case 'mnt50cmcosia':
+      geojsonObject = {
+        'type': 'Feature',
+        'geometry': {
+          'type': 'Polygon',
+          'coordinates': [
+            [
+              [55.3228, -21.0829], // Coin inférieur gauche
+              [55.4416, -21.0829], // Coin inférieur droit
+              [55.4416, -20.9728], // Coin supérieur droit
+              [55.3228, -20.9728], // Coin supérieur gauche
+              [55.3228, -21.0829]
+            ]
+          ]
+        }
+      };
+      break;
+
+      case 'plan-ign':
+        geojsonObject = {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Polygon',
+            'coordinates': [
+              []
+            ]
+          }
+        };
+        break;
+
+    // Ajouter d'autres cas pour d'autres styles si nécessaire...
+
+    default:
+      // Polygone par défaut
+      geojsonObject = {
+        'type': 'Feature',
+        'geometry': {
+          'type': 'Polygon',
+          'coordinates': [
+            [
+              [55.3228, -21.0829], // Coin inférieur gauche
+              [55.4416, -21.0829], // Coin inférieur droit
+              [55.4416, -20.9728], // Coin supérieur droit
+              [55.3228, -20.9728], // Coin supérieur gauche
+              [55.3228, -21.0829],
+            ],
+            [
+              [55.2598, -20.9728], // Coin inférieur gauche
+              [55.3228, -20.9728], // Coin inférieur droit
+              [55.3228, -20.9138], // Coin supérieur droit
+              [55.2598, -20.9138], // Coin supérieur gauche
+              [55.2598, -20.9728], // Retour au coin supérieur gauche
+            ],
+            [
+              [55.6500, -21.3], // Coin inférieur gauche (approximatif)
+              [55.8000, -21.3], // Coin inférieur droit
+              [55.8000, -21.2], // Coin supérieur droit
+              [55.6500, -21.2], // Coin supérieur gauche
+              [55.6500, -21.3]  // Retour au point de départ
+            ]
+          ]
+        }
+      };
+  }
+
+
 
   // Création de la source GeoJSON
   const geojsonSource = new ol.source.Vector({
@@ -259,7 +376,7 @@ updateZoomIndicator(map);
 
 
 // Ajout de la couche GeoJSON
-addGeoJSONLayer(map);
+addGeoJSONLayer(map,'mns50cm');
 
 // Ajout de la couche de toponymes
 addToponymLayer(map, true);
@@ -269,7 +386,20 @@ document.getElementById('layer-selector').addEventListener('change', (event) => 
   const selectedValue = event.target.value;
   const { url, isVector, layerType } = getLayerDetails(selectedValue);
   const newLayer = createLayer(url, isVector, layerType);
+
+  console.log('ajout')
+  
+  
+  map.getLayers().forEach(layer => {
+    console.log(layer)
+    console.log(selectedValue)
+    if (layer instanceof ol.layer.Vector && layer.getSource() instanceof ol.source.Vector) {
+      map.removeLayer(layer);
+    }
+  });
+
   updateLayerURL(map, newLayer);
+  addGeoJSONLayer(map,selectedValue);
   if (selectedValue !== 'plan-ign') {
     const useAlternativeStyle = (selectedValue === 'mns50cm' || selectedValue === 'mns50cmcosia' || selectedValue === 'mns20cm'|| selectedValue === 'mnt50cmcosia'|| selectedValue === 'mnt50cm');
     addToponymLayer(map, useAlternativeStyle);
