@@ -112,7 +112,7 @@ function addToponymLayer(map, useAlternativeStyle) {
   });
 
   const styleUrl = useAlternativeStyle
-    ? 'https://raw.githubusercontent.com/VincentHeau/server-carto-lidarHD/refs/heads/main/topo-du-standard.json'
+    ? 'https://raw.githubusercontent.com/VincentHeau/server-carto-lidarHD/refs/heads/main/style_toponyme-v2.json'
     : 'https://raw.githubusercontent.com/VincentHeau/server-carto-lidarHD/refs/heads/main/style.json';
 
   // Source pour les tuiles vectorielles
