@@ -1,17 +1,34 @@
-// Initialisation de la carte
-const map = L.map('map').setView([46.6, 2.5], 6); // Centrée sur la France
+// map.js
+document.addEventListener('DOMContentLoaded', () => {
 
-// Ajouter un fond de carte OpenStreetMap
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
+    // Initialisation de la carte centrée sur la France
+    const map = L.map('map').setView([46.6, 2.5], 6);
 
-// Exemple de zones traitées (polygone)
-const zone = L.polygon([
-    [48.8566, 2.3522], // Paris
-    [43.6047, 1.4442], // Toulouse
-    [45.7640, 4.8357]  // Lyon
-], {color: 'red'}).addTo(map);
+    // Ajouter le fond de carte OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
 
-// Popup sur la zone
-zone.bindPopup("Zone traitée");
+    // Charger le GeoJSON depuis le dossier ressources
+    fetch('ressources/mes_zones.geojson')
+        .then(response => response.json())
+        .then(data => {
+            const geojsonLayer = L.geoJSON(data, {
+                style: feature => ({
+                    color: feature.properties.couleur || '#3388ff', // couleur par défaut si manquante
+                    weight: 2,
+                    fillOpacity: 0.5
+                }),
+                onEachFeature: (feature, layer) => {
+                    if (feature.properties.description) {
+                        layer.bindPopup(`<b>Description :</b> ${feature.properties.description}`);
+                    }
+                }
+            }).addTo(map);
+
+            // Ajuster la vue pour inclure toutes les entités
+            map.fitBounds(geojsonLayer.getBounds());
+        })
+        .catch(err => console.error("Erreur chargement GeoJSON :", err));
+
+});
