@@ -15,13 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             const geojsonLayer = L.geoJSON(data, {
                 style: feature => ({
-                    color: feature.properties.couleur || '#3388ff', // couleur par défaut si manquante
+                    color: feature.properties.Couleur || '#3388ff', // couleur par défaut si manquante
                     weight: 2,
                     fillOpacity: 0.5
                 }),
                 onEachFeature: (feature, layer) => {
-                    if (feature.properties.description) {
-                        layer.bindPopup(`<b>Description :</b> ${feature.properties.description}`);
+                    if (feature.properties.Description) {
+                        layer.bindPopup(`<b>Description :</b> ${feature.properties.Description}`);
                     }
                 }
             }).addTo(map);
