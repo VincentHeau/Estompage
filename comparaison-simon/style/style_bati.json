@@ -1,0 +1,1715 @@
+{
+    "version": 8,
+    "name": "PLAN IGN",
+    "glyphs": "https://data.geopf.fr/annexes/ressources/vectorTiles/fonts/{fontstack}/{range}.pbf",
+    "sprite": "https://data.geopf.fr/annexes/ressources/vectorTiles/styles/PLAN.IGN/sprite/PlanIgn",
+    "sources": {
+        "plan_ign": {
+            "type": "vector",
+            "tiles": [
+                "https://data.geopf.fr/tms/1.0.0/PLAN.IGN/{z}/{x}/{y}.pbf"
+            ]
+        }
+    },
+    "transition": {
+        "duration": 300,
+        "delay": 0
+    },
+    "layers": [
+  
+        {
+            "id": "bati surfacique mairie - Zoom 14",
+            "type": "fill",
+            "source": "plan_ign",
+            "source-layer": "bati_surf",
+            "maxzoom": 14,
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "in",
+                "symbo",
+                "MAIRIE",
+                "MAIRIE_ANNEXE"
+            ],
+            "paint": {
+                "fill-color": "#FFA6A6"
+            }
+        },
+        {
+            "id": "bati surfacique mairie - Zoom 15,16,17,18",
+            "type": "fill",
+            "source": "plan_ign",
+            "source-layer": "bati_surf",
+            "minzoom": 14,
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "in",
+                "symbo",
+                "MAIRIE",
+                "MAIRIE_ANNEXE"
+            ],
+            "paint": {
+                "fill-color": {
+                    "stops": [
+                        [
+                            14,
+                            "#FFA6A6"
+                        ],
+                        [
+                            15,
+                            "#FFAEAE"
+                        ]
+                    ]
+                },
+                "fill-outline-color": "#FF7C7C"
+            }
+        },
+        {
+            "id": "bati surfacique fonctionnel industriel ou commercial - Zoom 14,15",
+            "type": "fill",
+            "source": "plan_ign",
+            "source-layer": "bati_surf",
+            "maxzoom": 15,
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "in",
+                "symbo",
+                "BATI_COMMERCIAL",
+                "BATI_INDUSTRIEL",
+                "HANGAR",
+                "HANGAR_COMMERCIAL",
+                "HANGAR_INDUSTRIEL"
+            ],
+            "paint": {
+                "fill-color": "#C8C8C8"
+            }
+        },
+        {
+            "id": "bati surfacique fonctionnel industriel ou commercial - Zoom 16,17,18",
+            "type": "fill",
+            "source": "plan_ign",
+            "source-layer": "bati_surf",
+            "minzoom": 15,
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "in",
+                "symbo",
+                "BATI_COMMERCIAL",
+                "BATI_INDUSTRIEL",
+                "HANGAR",
+                "HANGAR_COMMERCIAL",
+                "HANGAR_INDUSTRIEL"
+            ],
+            "paint": {
+                "fill-color": {
+                    "stops": [
+                        [
+                            15,
+                            "#D1D1D1"
+                        ],
+                        [
+                            16,
+                            "#E6E6E6"
+                        ]
+                    ]
+                },
+                "fill-outline-color": "#B8B8B8"
+            }
+        },
+        {
+            "id": "bati surfacique fonctionnel public - Zoom 14,15",
+            "type": "fill",
+            "source": "plan_ign",
+            "source-layer": "bati_surf",
+            "maxzoom": 15,
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "in",
+                "symbo",
+                "BATI_PUBLIC",
+                "HANGAR_PUBLIC"
+            ],
+            "paint": {
+                "fill-color": "#B9B6D6"
+            }
+        },
+        {
+            "id": "bati surfacique fonctionnel public - Zoom 16,17,18",
+            "type": "fill",
+            "source": "plan_ign",
+            "source-layer": "bati_surf",
+            "minzoom": 15,
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "in",
+                "symbo",
+                "BATI_PUBLIC",
+                "HANGAR_PUBLIC"
+            ],
+            "paint": {
+                "fill-color": {
+                    "stops": [
+                        [
+                            15,
+                            "#CFC5DE"
+                        ],
+                        [
+                            16,
+                            "#E4DAF3"
+                        ]
+                    ]
+                },
+                "fill-outline-color": "#A6A1D6"
+            }
+        },
+        {
+            "id": "bati surfacique fonctionnel sportif - bordure",
+            "type": "line",
+            "source": "plan_ign",
+            "source-layer": "bati_surf",
+            "minzoom": 15,
+            "layout": {
+                "visibility": "visible",
+                "line-cap": "round",
+                "line-join": "round"
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "BATI_SPORTIF"
+            ],
+            "paint": {
+                "line-color": "#BCD9AB",
+                "line-width": 4
+            }
+        },
+        {
+            "id": "bati surfacique fonctionnel sportif",
+            "type": "fill",
+            "source": "plan_ign",
+            "source-layer": "bati_surf",
+            "minzoom": 13,
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "BATI_SPORTIF"
+            ],
+            "paint": {
+                "fill-color": {
+                    "stops": [
+                        [
+                            14,
+                            "#C9E1DD"
+                        ],
+                        [
+                            15,
+                            "#DCE6E4"
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "bati surfacique fonctionnel gare - Zoom 14,15",
+            "type": "fill",
+            "source": "plan_ign",
+            "source-layer": "bati_surf",
+            "maxzoom": 15,
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "BATI_GARE"
+            ],
+            "paint": {
+                "fill-color": "#B3B5F5"
+            }
+        },
+        {
+            "id": "bati surfacique fonctionnel gare - Zoom 16,17,18",
+            "type": "fill",
+            "source": "plan_ign",
+            "source-layer": "bati_surf",
+            "minzoom": 15,
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "BATI_GARE"
+            ],
+            "paint": {
+                "fill-color": {
+                    "stops": [
+                        [
+                            15,
+                            "#BFC1F5"
+                        ],
+                        [
+                            16,
+                            "#CBCDF5"
+                        ]
+                    ]
+                },
+                "fill-outline-color": "#9B9EF6"
+            }
+        },
+        {
+            "id": "bati surfacique quelconque - Zoom 15",
+            "type": "fill",
+            "source": "plan_ign",
+            "source-layer": "bati_surf",
+            "minzoom": 14,
+            "maxzoom": 15,
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "BATI_QQUE"
+            ],
+            "paint": {
+                "fill-color": "#D6C6B8"
+            }
+        },
+        {
+            "id": "bati surfacique quelconque - Zoom 16,17,18",
+            "type": "fill",
+            "source": "plan_ign",
+            "source-layer": "bati_surf",
+            "minzoom": 15,
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "BATI_QQUE"
+            ],
+            "paint": {
+                "fill-color": {
+                    "stops": [
+                        [
+                            15,
+                            "#E6E0CF"
+                        ],
+                        [
+                            16,
+                            "#F1EBD9"
+                        ]
+                    ]
+                },
+                "fill-outline-color": "#C3AA8E"
+            }
+        },
+        {
+            "id": "bati hydro surfacique - Autre",
+            "type": "fill",
+            "source": "plan_ign",
+            "source-layer": "bati_surf",
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "in",
+                "symbo",
+                "ECLUSE_SURF",
+                "RESERVOIR_EAU_SURF"
+            ],
+            "paint": {
+                "fill-color": "#ADCCD9",
+                "fill-outline-color": "#336699"
+            }
+        },
+        {
+            "id": "bati hydro surfacique - Pecherie",
+            "type": "fill",
+            "source": "plan_ign",
+            "source-layer": "bati_surf",
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "PECHERIE_SURF"
+            ],
+            "paint": {
+                "fill-color": "#BFE2F0",
+                "fill-outline-color": "#509FEF"
+            }
+        },
+        {
+            "id": "bati hydro surfacique - Barrage",
+            "type": "fill",
+            "source": "plan_ign",
+            "source-layer": "bati_surf",
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "BARRAGE_SURF"
+            ],
+            "paint": {
+                "fill-color": "#FFFFFF",
+                "fill-outline-color": "#464646"
+            }
+        },
+        {
+            "id": "bati hydro surfacique - Chateau d'eau",
+            "type": "fill",
+            "source": "plan_ign",
+            "source-layer": "bati_surf",
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "CHATEAU_EAU_SURF"
+            ],
+            "paint": {
+                "fill-color": "#1466B2"
+            }
+        },
+        {
+            "id": "bati infra surfacique - Silo",
+            "type": "fill",
+            "source": "plan_ign",
+            "source-layer": "bati_surf",
+            "minzoom": 15,
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "SILO_SURF"
+            ],
+            "paint": {
+                "fill-color": "#C7A9AA",
+                "fill-outline-color": "#696969"
+            }
+        },
+        {
+            "id": "bati infra surfacique - Reservoir indus",
+            "type": "fill",
+            "source": "plan_ign",
+            "source-layer": "bati_surf",
+            "minzoom": 14,
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "RESERVOIR_INDUS_SURF"
+            ],
+            "paint": {
+                "fill-color": "#8D9DAA",
+                "fill-outline-color": "#464646"
+            }
+        },
+        {
+            "id": "bati infra surfacique - Serre",
+            "type": "fill",
+            "source": "plan_ign",
+            "source-layer": "bati_surf",
+            "minzoom": 13,
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "in",
+                "symbo",
+                "SERRE_SURF"
+            ],
+            "paint": {
+                "fill-color": "#CAD6D9",
+                "fill-outline-color": "#8C8C8C"
+            }
+        },
+        {
+            "id": "bati infra surfacique - poste electrique",
+            "type": "fill",
+            "source": "plan_ign",
+            "source-layer": "bati_surf",
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "in",
+                "symbo",
+                "POSTE_ELEC_SURF"
+            ],
+            "paint": {
+                "fill-color": "#7993B6",
+                "fill-opacity": 0.3
+            }
+        },
+        {
+            "id": "bati infra surfacique - poste electrique bord",
+            "type": "line",
+            "source": "plan_ign",
+            "source-layer": "bati_surf",
+            "layout": {
+                "visibility": "visible",
+                "line-cap": "round",
+                "line-join": "round"
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "POSTE_ELEC_SURF"
+            ],
+            "paint": {
+                "line-color": "#000000",
+                "line-width": {
+                    "stops": [
+                        [
+                            12,
+                            0.3
+                        ],
+                        [
+                            17,
+                            1.2
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "bati religieux surfacique - Zoom 14",
+            "type": "fill",
+            "source": "plan_ign",
+            "source-layer": "bati_surf",
+            "maxzoom": 14,
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "in",
+                "symbo",
+                "CHAPELLE_SURF",
+                "EGLISE_SURF",
+                "CHRETIEN_SURF",
+                "SYNAGOGUE_SURF",
+                "MOSQUEE_SURF",
+                "AUTRE_CULTE_SURF",
+                "RELIGIEUX_QQUE"
+            ],
+            "paint": {
+                "fill-color": "#F7CBCB"
+            }
+        },
+        {
+            "id": "bati religieux surfacique - Zoom 15,16,17,18",
+            "type": "fill",
+            "source": "plan_ign",
+            "source-layer": "bati_surf",
+            "minzoom": 14,
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "in",
+                "symbo",
+                "CHAPELLE_SURF",
+                "EGLISE_SURF",
+                "CHRETIEN_SURF",
+                "SYNAGOGUE_SURF",
+                "MOSQUEE_SURF",
+                "AUTRE_CULTE_SURF",
+                "RELIGIEUX_QQUE"
+            ],
+            "paint": {
+                "fill-color": {
+                    "stops": [
+                        [
+                            14,
+                            "#F7CBCB"
+                        ],
+                        [
+                            15,
+                            "#F7E1E1"
+                        ]
+                    ]
+                },
+                "fill-outline-color": {
+                    "stops": [
+                        [
+                            14,
+                            "#F7A8A8"
+                        ],
+                        [
+                            15,
+                            "#F7B7B7"
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "bati remarquable surfacique",
+            "type": "fill",
+            "source": "plan_ign",
+            "source-layer": "bati_surf",
+            "minzoom": 13,
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "in",
+                "symbo",
+                "FORTIF_SURF",
+                "CHATEAU_SURF",
+                "TOUR_MOULIN_SURF",
+                "ARENE_THEATRE",
+                "ARC_TRIOMPHE_SURF",
+                "MONUMENT_SURF"
+            ],
+            "paint": {
+                "fill-color": "#9B9B9B",
+                "fill-outline-color": "#6E6E6E"
+            }
+        },
+        {
+            "id": "bati sportif surfacique fond",
+            "type": "fill",
+            "source": "plan_ign",
+            "source-layer": "bati_surf",
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "in",
+                "symbo",
+                "TENNIS_SURF",
+                "SPORT_INDIF_SURF",
+                "FOOT_SURF",
+                "MULTI_SPORT_SURF",
+                "PISTE_SPORT_SURF",
+                "NATATION_SURF"
+            ],
+            "paint": {
+                "fill-color": "#F1F5E7",
+                "fill-outline-color": "#F1F5E7"
+            }
+        },
+        {
+            "id": "bati sportif surfacique",
+            "type": "line",
+            "source": "plan_ign",
+            "source-layer": "bati_surf",
+            "layout": {
+                "visibility": "visible",
+                "line-cap": "round",
+                "line-join": "round"
+            },
+            "filter": [
+                "in",
+                "symbo",
+                "TENNIS_SURF",
+                "SPORT_INDIF_SURF",
+                "FOOT_SURF",
+                "MULTI_SPORT_SURF",
+                "PISTE_SPORT_SURF",
+                "NATATION_SURF"
+            ],
+            "paint": {
+                "line-color": "#BCD9AB",
+                "line-width": 2
+            }
+        },
+        {
+            "id": "bati transport surfacique - piste",
+            "type": "fill",
+            "source": "plan_ign",
+            "source-layer": "bati_surf",
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "in",
+                "symbo",
+                "PISTE_DUR",
+                "PISTE_HERBE"
+            ],
+            "paint": {
+                "fill-color": "#DBDBDB",
+                "fill-outline-color": "#808080"
+            }
+        },
+        
+        {
+            "id": "bati ZAI - Commandement",
+            "type": "fill",
+            "source": "plan_ign",
+            "source-layer": "bati_zai",
+            "minzoom": 15,
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "in",
+                "nature",
+                "Hôtel de département",
+                "Hôtel de région",
+                "Hôtel de collectivité",
+                "Préfecture de région",
+                "Préfecture",
+                "Sous-préfecture"
+            ],
+            "paint": {
+                "fill-color": "#FF0000",
+                "fill-opacity": 0.3,
+                "fill-outline-color": "#B40000"
+            }
+        },
+        {
+            "id": "construction linéaire - mur",
+            "type": "line",
+            "source": "plan_ign",
+            "source-layer": "bati_lin",
+            "layout": {
+                "visibility": "visible",
+                "line-cap": "round",
+                "line-join": "round"
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "MUR"
+            ],
+            "paint": {
+                "line-color": "#8C8C8C",
+                "line-width": 0.3
+            }
+        },
+        {
+            "id": "construction linéaire - autre",
+            "type": "line",
+            "source": "plan_ign",
+            "source-layer": "bati_lin",
+            "layout": {
+                "visibility": "visible",
+                "line-cap": "round",
+                "line-join": "round"
+            },
+            "filter": [
+                "in",
+                "symbo",
+                "RUINE_LIN",
+                "MUR_SOUTENEMENT",
+                "FORTIF_LIN"
+            ],
+            "paint": {
+                "line-color": "#646464",
+                "line-width": 0.5
+            }
+        },
+        {
+            "id": "construction hydrographique linéaire - Barrage",
+            "type": "line",
+            "source": "plan_ign",
+            "source-layer": "bati_lin",
+            "minzoom": 13,
+            "layout": {
+                "visibility": "visible",
+                "line-cap": "butt",
+                "line-join": "round"
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "BARRAGE_LIN"
+            ],
+            "paint": {
+                "line-color": "#646464",
+                "line-width": {
+                    "stops": [
+                        [
+                            13,
+                            1.5
+                        ],
+                        [
+                            17,
+                            5
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "construction hydrographique linéaire - Quai",
+            "type": "line",
+            "source": "plan_ign",
+            "source-layer": "bati_lin",
+            "minzoom": 12,
+            "layout": {
+                "visibility": "visible",
+                "line-cap": "butt",
+                "line-join": "round"
+            },
+            "filter": [
+                "in",
+                "symbo",
+                "QUAI",
+                "DIGUE"
+            ],
+            "paint": {
+                "line-color": "#828282",
+                "line-width": {
+                    "stops": [
+                        [
+                            14,
+                            1
+                        ],
+                        [
+                            17,
+                            2.5
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "construction hydrographique linéaire - Pecherie",
+            "type": "line",
+            "source": "plan_ign",
+            "source-layer": "bati_lin",
+            "minzoom": 12,
+            "layout": {
+                "visibility": "visible",
+                "line-cap": "butt",
+                "line-join": "round"
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "PECHERIE_LIN"
+            ],
+            "paint": {
+                "line-color": "#0066CC",
+                "line-width": {
+                    "stops": [
+                        [
+                            14,
+                            1
+                        ],
+                        [
+                            17,
+                            2.5
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "bati transport surfacique - bati peage",
+            "type": "fill",
+            "source": "plan_ign",
+            "source-layer": "bati_surf",
+            "minzoom": 13,
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "BATI_PEAGE"
+            ],
+            "paint": {
+                "fill-color": "#DCDCDC",
+                "fill-outline-color": "#808080"
+            }
+        },
+        {
+            "id": "ligne electrique",
+            "type": "line",
+            "source": "plan_ign",
+            "source-layer": "bati_lin",
+            "layout": {
+                "visibility": "visible",
+                "line-cap": "round",
+                "line-join": "round"
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "LIGNE_ELECTRIQUE"
+            ],
+            "paint": {
+                "line-color": "#808080",
+                "line-width": {
+                    "stops": [
+                        [
+                            13,
+                            1
+                        ],
+                        [
+                            17,
+                            2
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "autre construction linéaire",
+            "type": "line",
+            "source": "plan_ign",
+            "source-layer": "bati_lin",
+            "layout": {
+                "visibility": "visible",
+                "line-cap": "round",
+                "line-join": "round"
+            },
+            "filter": [
+                "in",
+                "symbo",
+                "CABLE",
+                "REMONTEE_MEC",
+                "HYDROCARBURES",
+                "CONDUITE_MATIERES_P",
+                "SPORT_MONTAGNE_LIN",
+                "PISTE_BOBSLEIGH",
+                "PISTE_LUGE",
+                "PISTE_AERO_LIN"
+            ],
+            "paint": {
+                "line-color": "#808080",
+                "line-width": 1
+            }
+        },
+        {
+            "id": "autre construction linéaire - trait perpend cable",
+            "type": "line",
+            "source": "plan_ign",
+            "source-layer": "bati_lin",
+            "layout": {
+                "visibility": "visible",
+                "line-cap": "butt",
+                "line-join": "round"
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "CABLE"
+            ],
+            "paint": {
+                "line-color": "#808080",
+                "line-width": 5,
+                "line-dasharray": [
+                    0.5,
+                    10
+                ]
+            }
+        },
+        {
+            "id": "autre construction linéaire - trait perpend 1 remont",
+            "type": "line",
+            "source": "plan_ign",
+            "source-layer": "bati_lin",
+            "layout": {
+                "visibility": "visible",
+                "line-cap": "butt",
+                "line-join": "round"
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "REMONTEE_MEC"
+            ],
+            "paint": {
+                "line-color": "#808080",
+                "line-width": 6,
+                "line-dasharray": [
+                    1,
+                    10
+                ]
+            }
+        },
+        {
+            "id": "autre construction linéaire - trait perpend 2 remont",
+            "type": "line",
+            "source": "plan_ign",
+            "source-layer": "bati_lin",
+            "layout": {
+                "visibility": "visible",
+                "line-cap": "butt",
+                "line-join": "round"
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "REMONTEE_MEC"
+            ],
+            "paint": {
+                "line-color": "#BEBEBE",
+                "line-width": 6,
+                "line-dasharray": [
+                    0.3,
+                    0.4,
+                    0.3,
+                    10
+                ]
+            }
+        },
+        {
+            "id": "autre construction linéaire - trait perpend carbur",
+            "type": "line",
+            "source": "plan_ign",
+            "source-layer": "bati_lin",
+            "layout": {
+                "visibility": "visible",
+                "line-cap": "butt",
+                "line-join": "round"
+            },
+            "filter": [
+                "in",
+                "symbo",
+                "HYDROCARBURES",
+                "CONDUITE_MATIERES_P"
+            ],
+            "paint": {
+                "line-color": "#808080",
+                "line-width": 5,
+                "line-dasharray": [
+                    1,
+                    10
+                ]
+            }
+        },
+        {
+            "id": "bati ponctuel : Hopital",
+            "type": "symbol",
+            "source": "plan_ign",
+            "source-layer": "bati_ponc",
+            "layout": {
+                "visibility": "visible",
+                "icon-image": "Hopital",
+                "icon-size": 0.33
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "HOPITAL_PONC"
+            ],
+            "paint": {
+                "icon-color": "#646464"
+            }
+        },
+        {
+            "id": "bati ponctuel hydrographique",
+            "type": "symbol",
+            "source": "plan_ign",
+            "source-layer": "bati_ponc",
+            "minzoom": 14,
+            "layout": {
+                "visibility": "visible",
+                "icon-image": "Pompage",
+                "icon-size": {
+                    "stops": [
+                        [
+                            13,
+                            0.2
+                        ],
+                        [
+                            17,
+                            0.6
+                        ]
+                    ]
+                },
+                "icon-allow-overlap": true
+            },
+            "filter": [
+                "in",
+                "symbo",
+                "CITERNE",
+                "LAVOIR",
+                "STATION_EPURATION",
+                "STATION_DE_POMPAGE",
+                "USINE_PRODUCTION_EAU",
+                "USINE_ELEVATRICE"
+            ],
+            "paint": {
+                "icon-color": "#1C62A6"
+            }
+        },
+        {
+            "id": "bati ponctuel hydrographique - Puits-Abreuvoir",
+            "type": "circle",
+            "source": "plan_ign",
+            "source-layer": "bati_ponc",
+            "minzoom": 13,
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "in",
+                "symbo",
+                "PUITS",
+                "ABREUVOIR"
+            ],
+            "paint": {
+                "circle-radius": {
+                    "stops": [
+                        [
+                            14,
+                            3
+                        ],
+                        [
+                            17,
+                            7
+                        ]
+                    ]
+                },
+                "circle-color": "#FFFFFF",
+                "circle-opacity": 1,
+                "circle-stroke-width": {
+                    "stops": [
+                        [
+                            14,
+                            2
+                        ],
+                        [
+                            17,
+                            5
+                        ]
+                    ]
+                },
+                "circle-stroke-color": "#1466B2"
+            }
+        },
+        {
+            "id": "bati ponctuel hydrographique - Phare",
+            "type": "symbol",
+            "source": "plan_ign",
+            "source-layer": "bati_ponc",
+            "minzoom": 13,
+            "layout": {
+                "visibility": "visible",
+                "icon-image": "Phare",
+                "icon-size": {
+                    "stops": [
+                        [
+                            13,
+                            0.7
+                        ],
+                        [
+                            17,
+                            1.3
+                        ]
+                    ]
+                }
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "PHARE"
+            ],
+            "paint": {
+                "icon-color": "#646464"
+            }
+        },
+        {
+            "id": "bati ponctuel hydrographique - Amer-Feu",
+            "type": "symbol",
+            "source": "plan_ign",
+            "source-layer": "bati_ponc",
+            "minzoom": 13,
+            "layout": {
+                "visibility": "visible",
+                "icon-image": "Feu",
+                "icon-size": {
+                    "stops": [
+                        [
+                            13,
+                            0.7
+                        ],
+                        [
+                            17,
+                            1.3
+                        ]
+                    ]
+                }
+            },
+            "filter": [
+                "in",
+                "symbo",
+                "AMER",
+                "FEU",
+                "FEU_PONC",
+                "TOURELLE_LUMINEUSE"
+            ],
+            "paint": {
+                "icon-color": "#646464"
+            }
+        },
+        {
+            "id": "bati ponctuel hydrographique - Balise",
+            "type": "symbol",
+            "source": "plan_ign",
+            "source-layer": "bati_ponc",
+            "minzoom": 13,
+            "layout": {
+                "visibility": "visible",
+                "icon-image": "Balise",
+                "icon-size": {
+                    "stops": [
+                        [
+                            13,
+                            0.7
+                        ],
+                        [
+                            17,
+                            1.3
+                        ]
+                    ]
+                }
+            },
+            "filter": [
+                "in",
+                "symbo",
+                "BALISE",
+                "TOURELLE"
+            ],
+            "paint": {
+                "icon-color": "#646464"
+            }
+        },
+        {
+            "id": "bati ponctuel hydrographique - Ecluse",
+            "type": "symbol",
+            "source": "plan_ign",
+            "source-layer": "bati_ponc",
+            "minzoom": 12,
+            "maxzoom": 15,
+            "layout": {
+                "visibility": "visible",
+                "icon-image": "Ecluse",
+                "icon-size": 0.2
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "ECLUSE_PONC"
+            ],
+            "paint": {
+                "icon-color": "#1C62A6"
+            }
+        },
+        {
+            "id": "bati ponctuel hydrographique - Barrage",
+            "type": "symbol",
+            "source": "plan_ign",
+            "source-layer": "bati_ponc",
+            "minzoom": 12,
+            "maxzoom": 14,
+            "layout": {
+                "visibility": "visible",
+                "icon-image": "Barrage",
+                "icon-size": 0.25
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "BARRAGE_PONC"
+            ],
+            "paint": {
+                "icon-color": "#1C62A6"
+            }
+        },
+        {
+            "id": "bati ponctuel hydrographique - Chateau d'eau",
+            "type": "circle",
+            "source": "plan_ign",
+            "source-layer": "bati_ponc",
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "CHATEAU_EAU_PONC"
+            ],
+            "paint": {
+                "circle-radius": {
+                    "stops": [
+                        [
+                            14,
+                            3
+                        ],
+                        [
+                            17,
+                            8
+                        ]
+                    ]
+                },
+                "circle-color": "#1466B2"
+            }
+        },
+        {
+            "id": "bati ponctuel hydrographique - Réservoir d'eau",
+            "type": "circle",
+            "source": "plan_ign",
+            "source-layer": "bati_ponc",
+            "maxzoom": 15,
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "RESERVOIR_EAU_PONC"
+            ],
+            "paint": {
+                "circle-radius": {
+                    "stops": [
+                        [
+                            14,
+                            3
+                        ],
+                        [
+                            17,
+                            8
+                        ]
+                    ]
+                },
+                "circle-color": "#AAD5E9",
+                "circle-opacity": 1,
+                "circle-stroke-width": {
+                    "stops": [
+                        [
+                            14,
+                            1
+                        ],
+                        [
+                            17,
+                            2.5
+                        ]
+                    ]
+                },
+                "circle-stroke-color": "#1466B2"
+            }
+        },
+        {
+            "id": "bati ponctuel infrastructure - Constr spé",
+            "type": "symbol",
+            "source": "plan_ign",
+            "source-layer": "bati_ponc",
+            "layout": {
+                "visibility": "visible",
+                "icon-image": "ConstrSpeciale",
+                "icon-size": {
+                    "stops": [
+                        [
+                            13,
+                            0.22
+                        ],
+                        [
+                            17,
+                            0.5
+                        ]
+                    ]
+                }
+            },
+            "filter": [
+                "in",
+                "symbo",
+                "ANTENNE",
+                "TRANSFORMATEUR",
+                "CONSTR_INDIF_PONC",
+                "CHEMINEE",
+                "CHEVALEMENT",
+                "PUITS_GAZ",
+                "PUITS_PETROLE",
+                "PYLONE_METEO",
+                "TORCHERE",
+                "TOUR_GUET",
+                "TOUR_HERTZIENNE"
+            ],
+            "paint": {
+                "icon-color": "#646464"
+            }
+        },
+        {
+            "id": "bati ponctuel infrastructure - Silo",
+            "type": "symbol",
+            "source": "plan_ign",
+            "source-layer": "bati_ponc",
+            "maxzoom": 15,
+            "layout": {
+                "visibility": "visible",
+                "icon-image": "Silo",
+                "icon-size": {
+                    "stops": [
+                        [
+                            13,
+                            0.22
+                        ],
+                        [
+                            17,
+                            0.5
+                        ]
+                    ]
+                }
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "SILO_PONC"
+            ],
+            "paint": {
+                "icon-color": "#646464"
+            }
+        },
+        {
+            "id": "bati ponctuel infrastructure - Eolienne",
+            "type": "symbol",
+            "source": "plan_ign",
+            "source-layer": "bati_ponc",
+            "layout": {
+                "visibility": "visible",
+                "icon-image": "Eolienne",
+                "icon-size": {
+                    "stops": [
+                        [
+                            13,
+                            0.4
+                        ],
+                        [
+                            17,
+                            1
+                        ],
+                        [
+                            18,
+                            0.8
+                        ]
+                    ]
+                }
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "EOLIENNE"
+            ],
+            "paint": {
+                "icon-color": "#646464"
+            }
+        },
+        {
+            "id": "bati ponctuel infrastructure - Reservoir",
+            "type": "symbol",
+            "source": "plan_ign",
+            "source-layer": "bati_ponc",
+            "maxzoom": 15,
+            "layout": {
+                "visibility": "visible",
+                "icon-image": "Reservoir",
+                "icon-size": {
+                    "stops": [
+                        [
+                            13,
+                            0.26
+                        ],
+                        [
+                            17,
+                            0.5
+                        ]
+                    ]
+                }
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "RESERVOIR_PONC"
+            ],
+            "paint": {
+                "icon-color": "#646464"
+            }
+        },
+        {
+            "id": "bati ponctuel infrastructure - pylone électrique",
+            "type": "circle",
+            "source": "plan_ign",
+            "source-layer": "bati_ponc",
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "PYLONE_ELEC"
+            ],
+            "paint": {
+                "circle-radius": {
+                    "stops": [
+                        [
+                            13,
+                            1
+                        ],
+                        [
+                            17,
+                            2
+                        ]
+                    ]
+                },
+                "circle-color": "#000000"
+            }
+        },
+        {
+            "id": "bati ponctuel montagne - Abri",
+            "type": "symbol",
+            "source": "plan_ign",
+            "source-layer": "bati_ponc",
+            "layout": {
+                "visibility": "visible",
+                "icon-image": "Abri",
+                "icon-size": {
+                    "stops": [
+                        [
+                            13,
+                            0.4
+                        ],
+                        [
+                            15,
+                            0.6
+                        ],
+                        [
+                            17,
+                            0.9
+                        ]
+                    ]
+                }
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "ABRI"
+            ],
+            "paint": {
+                "icon-color": "#246138"
+            }
+        },
+        {
+            "id": "bati ponctuel montagne - Refuge Garde",
+            "type": "symbol",
+            "source": "plan_ign",
+            "source-layer": "bati_ponc",
+            "layout": {
+                "visibility": "visible",
+                "icon-image": "Refugegard",
+                "icon-size": {
+                    "stops": [
+                        [
+                            13,
+                            0.4
+                        ],
+                        [
+                            15,
+                            0.6
+                        ],
+                        [
+                            17,
+                            0.9
+                        ]
+                    ]
+                }
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "REFUGE_GARDE"
+            ],
+            "paint": {
+                "icon-color": "#246138"
+            }
+        },
+        {
+            "id": "bati ponctuel montagne - Refuge Non Garde",
+            "type": "symbol",
+            "source": "plan_ign",
+            "source-layer": "bati_ponc",
+            "layout": {
+                "visibility": "visible",
+                "icon-image": "Refugenongard",
+                "icon-size": {
+                    "stops": [
+                        [
+                            13,
+                            0.4
+                        ],
+                        [
+                            15,
+                            0.6
+                        ],
+                        [
+                            17,
+                            0.9
+                        ]
+                    ]
+                }
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "REFUGE"
+            ],
+            "paint": {
+                "icon-color": "#246138"
+            }
+        },
+        {
+            "id": "bati ponctuel transport aerien - Aeroport FXX",
+            "type": "symbol",
+            "source": "plan_ign",
+            "source-layer": "bati_ponc",
+            "layout": {
+                "visibility": "visible",
+                "icon-image": "Aeroport",
+                "icon-size": 0.5
+            },
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "symbo",
+                    "AEROPORT_PONC"
+                ],
+                [
+                    "==",
+                    "territoire",
+                    "FXX"
+                ]
+            ],
+            "paint": {
+                "icon-color": "#646464"
+            }
+        },
+        {
+            "id": "bati ponctuel transport aerien - Aerodrome FXX",
+            "type": "symbol",
+            "source": "plan_ign",
+            "source-layer": "bati_ponc",
+            "layout": {
+                "visibility": "visible",
+                "icon-image": "Aerodrome",
+                "icon-size": 0.4
+            },
+            "filter": [
+                "all",
+                [
+                    "in",
+                    "symbo",
+                    "AERODROME_PONC",
+                    "AERODROME_IMPORT_PONC"
+                ],
+                [
+                    "==",
+                    "territoire",
+                    "FXX"
+                ]
+            ],
+            "paint": {
+                "icon-color": "#646464"
+            }
+        },
+        {
+            "id": "bati ponctuel transport aerien - Aeroport DOM",
+            "type": "symbol",
+            "source": "plan_ign",
+            "source-layer": "bati_ponc",
+            "minzoom": 8,
+            "layout": {
+                "visibility": "visible",
+                "icon-image": "Aeroport",
+                "icon-size": 0.5
+            },
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "symbo",
+                    "AEROPORT_PONC"
+                ],
+                [
+                    "!=",
+                    "territoire",
+                    "FXX"
+                ]
+            ],
+            "paint": {
+                "icon-color": "#646464"
+            }
+        },
+        {
+            "id": "bati ponctuel transport aerien - Aerodrome DOM",
+            "type": "symbol",
+            "source": "plan_ign",
+            "source-layer": "bati_ponc",
+            "minzoom": 8,
+            "layout": {
+                "visibility": "visible",
+                "icon-image": "Aerodrome",
+                "icon-size": 0.4
+            },
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "symbo",
+                    "AERODROME_PONC"
+                ],
+                [
+                    "!=",
+                    "territoire",
+                    "FXX"
+                ]
+            ],
+            "paint": {
+                "icon-color": "#646464"
+            }
+        },
+        {
+            "id": "bati ponctuel transport ferroviaire",
+            "type": "symbol",
+            "source": "plan_ign",
+            "source-layer": "bati_ponc",
+            "layout": {
+                "visibility": "visible",
+                "icon-image": "Gare",
+                "icon-size": 0.33
+            },
+            "filter": [
+                "==",
+                "symbo",
+                "GARE_VOYAGEURS"
+            ],
+            "paint": {
+                "icon-color": "#4E4E4E"
+            }
+        }
+    ]
+}

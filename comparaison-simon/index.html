@@ -1,15 +1,60 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/4.6.5/ol.js"></script>
-<div class="ol-viewport">
-  <input
-    class="ol-unselectable ol-control"
-    id="swipe"
-    type="range"
-    style="width: 100%"
-  />
-  <div class="ol-unselectable ol-control" id="TSLabel">Tile Server &#9658;</div>
-  <div class="ol-unselectable ol-control" id="osmLabel">
-    &#9668; OpenStreetMap
-  </div>
-  <a class="ol-unselectable ol-control" id="ZoomElement"></a>
-</div>
-<div tabindex="0" id="map" class="map"></div>
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Comparateur de couches (gauche/droite) – OpenLayers (UMD)</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/ol@latest/ol.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/ol@latest/dist/ol.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div
+        id="map"
+        role="region"
+        aria-label="Carte comparateur gauche droite"
+      ></div>
+      <div class="divider" id="divider"></div>
+
+      <div class="legend" aria-hidden="true">
+        <div class="badge">
+          <span class="dot left"></span
+          ><span id="leftLabel">Gauche : Flux perso</span>
+        </div>
+        <div class="badge">
+          <span class="dot right"></span
+          ><span id="rightLabel">Droite : OSM Humanitaire</span>
+        </div>
+      </div>
+
+      <div class="slider-wrap">
+        <input
+          id="slider"
+          class="slider"
+          type="range"
+          min="0"
+          max="100"
+          value="50"
+          step="1"
+          aria-label="Position du séparateur"
+        />
+      </div>
+
+      <div class="attribution">
+        Données : ©
+        <a
+          href="https://www.openstreetmap.org/copyright"
+          target="_blank"
+          rel="noopener"
+          >contributeurs OpenStreetMap</a
+        >
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
