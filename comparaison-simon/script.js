@@ -1,76 +1,114 @@
-// Initialisation carte
-const map = new ol.Map({
-  target: 'map1',
-  view: new ol.View({
-    center: ol.proj.fromLonLat([55.53064, -21.113682]), // Réunion
-    zoom: 14,
-    minZoom: 5,
-    maxZoom: 20
+var zoom = 2,
+  center = [0, 0];
+
+// Set up the Tile Server layer
+var myTileServer = new ol.layer.Tile({
+  preload: Infinity,
+  source: new ol.source.OSM({
+    crossOrigin: null,
+    url: "osm_tiles/{z}/{x}/{y}.png",
   }),
-  layers: []
 });
 
-// Indicateur de zoom
-function updateZoomIndicator(map) {
-  const zoomIndicator = document.getElementById('zoom-indicator');
-  map.getView().on('change:resolution', () => {
-    zoomIndicator.innerText = `Zoom: ${Math.round(map.getView().getZoom())}`;
-  });
+// Set up the OSM layer
+var openStreetMap = new ol.layer.Tile({
+  preload: Infinity,
+  source: new ol.source.OSM({
+    crossOrigin: null,
+    url: "https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+  }),
+});
+
+if (window.location.hash !== "") {
+  var hash = window.location.hash.replace("#", "");
+  var parts = hash.split(";");
+  if (parts.length === 3) {
+    zoom = parseInt(parts[0], 10);
+    center = [parseFloat(parts[2]), parseFloat(parts[1])];
+  }
 }
-updateZoomIndicator(map);
 
-// Définition des couches
-const couches = {
-  wmtsIGN: new ol.layer.Tile({
-    source: new ol.source.WMTS({
-      url: 'https://data.geopf.fr/wmts',
-      layer: 'ELEVATION.CONTOUR.LINE',
-      matrixSet: 'PM_6_18',
-      format: 'image/png',
-      projection: 'EPSG:3857',
-      style: 'normal',
-      tileGrid: new ol.tilegrid.WMTS({
-        origin: [-20037508, 20037508],
-        resolutions: Array.from({length: 19}, (_, z) => 156543.03392804097 / Math.pow(2, z)),
-        matrixIds: Array.from({length: 19}, (_, z) => z.toString())
-      }),
-      attributions: '<a href="https://www.ign.fr/">IGN</a>'
-    })
-  }),
-
-  V1: new ol.layer.Vector({
-    source: new ol.source.Vector({
-      url: './data/version1.geojson',
-      format: new ol.format.GeoJSON()
-    }),
-    style: new ol.style.Style({
-      stroke: new ol.style.Stroke({
-        color: 'red',
-        width: 2
-      })
-    })
-  }),
-
-  V2: new ol.layer.Vector({
-    source: new ol.source.Vector({
-      url: './data/version2.geojson',
-      format: new ol.format.GeoJSON()
-    }),
-    style: new ol.style.Style({
-      stroke: new ol.style.Stroke({
-        color: 'blue',
-        width: 1
-      })
-    })
-  })
-};
-
-// Gestion du changement de couche
-document.getElementById('layer-selector').addEventListener('change', (e) => {
-  const value = e.target.value;
-  map.getLayers().clear(); // Supprimer toutes les couches
-  map.addLayer(couches[value]); // Ajouter la nouvelle
+// Set up the default view
+var myTileView = new ol.View({
+  center: ol.proj.transform(center, "EPSG:4326", "EPSG:3857"),
+  zoom: zoom,
 });
 
-// Couche initiale
-map.addLayer(couches['wmtsIGN']);
+// Create the map
+var map = new ol.Map({
+  layers: [myTileServer, openStreetMap],
+  loadTilesWhileInteracting: true,
+  target: "map",
+  controls: ol.control.defaults().extend([
+    new ol.control.ScaleLine(),
+    new ol.control.Zoom(),
+    new ol.control.ZoomSlider(),
+    new ol.control.ZoomToExtent(),
+    new ol.control.FullScreen({
+      className: "ol-fullscreen ol-custom-fullscreen",
+    }),
+    new ol.control.OverviewMap({
+      className: "ol-overviewmap ol-custom-overviewmap",
+    }),
+    new ol.control.MousePosition({
+      className: "ol-mouse-position ol-custom-mouse-position3857",
+      coordinateFormat: ol.coordinate.createStringXY(4),
+      projection: "EPSG:3857",
+      undefinedHTML: "&nbsp;",
+    }),
+    new ol.control.MousePosition({
+      coordinateFormat: function (coord) {
+        return ol.coordinate.toStringHDMS(coord);
+      },
+      projection: "EPSG:4326",
+      className: "ol-mouse-position ol-custom-mouse-positionHDMS",
+      target: document.getElementById("mouse-position"),
+      undefinedHTML: "&nbsp;",
+    }),
+    new ol.control.MousePosition({
+      className: "ol-mouse-position ol-custom-mouse-positionXY",
+      coordinateFormat: ol.coordinate.createStringXY(4),
+      projection: "EPSG:4326",
+      undefinedHTML: "&nbsp;",
+    }),
+  ]),
+  view: myTileView,
+});
+map.on("moveend", function () {
+  var view = map.getView();
+  var center = ol.proj.transform(view.getCenter(), "EPSG:3857", "EPSG:4326");
+  var zoom = view.getZoom();
+  var zoomInfo = "Zoom level = " + zoom;
+  document.getElementById("ZoomElement").innerHTML = zoomInfo;
+  window.location.hash =
+    view.getZoom() +
+    ";" +
+    Math.round(center[1] * 1000000) / 1000000 +
+    ";" +
+    Math.round(center[0] * 1000000) / 1000000;
+});
+
+var swipe = document.getElementById("swipe");
+
+openStreetMap.on("precompose", function (event) {
+  var ctx = event.context;
+  var width = ctx.canvas.width * (swipe.value / 100);
+
+  ctx.save();
+  ctx.beginPath();
+  ctx.rect(width, 0, ctx.canvas.width - width, ctx.canvas.height);
+  ctx.clip();
+});
+
+openStreetMap.on("postcompose", function (event) {
+  var ctx = event.context;
+  ctx.restore();
+});
+
+swipe.addEventListener(
+  "input",
+  function () {
+    map.render();
+  },
+  false
+);
